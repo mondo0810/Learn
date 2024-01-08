@@ -1,0 +1,14 @@
+E:\IT_THIBLUE\Learn\TestCSharp_DoVanThi\TestCSharp_DoVanThi\bin\Debug\net7.0\TestCSharp_DoVanThi.exe
+E:\IT_THIBLUE\Learn\TestCSharp_DoVanThi\TestCSharp_DoVanThi\bin\Debug\net7.0\TestCSharp_DoVanThi.deps.json
+E:\IT_THIBLUE\Learn\TestCSharp_DoVanThi\TestCSharp_DoVanThi\bin\Debug\net7.0\TestCSharp_DoVanThi.runtimeconfig.json
+E:\IT_THIBLUE\Learn\TestCSharp_DoVanThi\TestCSharp_DoVanThi\bin\Debug\net7.0\TestCSharp_DoVanThi.dll
+E:\IT_THIBLUE\Learn\TestCSharp_DoVanThi\TestCSharp_DoVanThi\bin\Debug\net7.0\TestCSharp_DoVanThi.pdb
+E:\IT_THIBLUE\Learn\TestCSharp_DoVanThi\TestCSharp_DoVanThi\obj\Debug\net7.0\TestCSharp_DoVanThi.GeneratedMSBuildEditorConfig.editorconfig
+E:\IT_THIBLUE\Learn\TestCSharp_DoVanThi\TestCSharp_DoVanThi\obj\Debug\net7.0\TestCSharp_DoVanThi.AssemblyInfoInputs.cache
+E:\IT_THIBLUE\Learn\TestCSharp_DoVanThi\TestCSharp_DoVanThi\obj\Debug\net7.0\TestCSharp_DoVanThi.AssemblyInfo.cs
+E:\IT_THIBLUE\Learn\TestCSharp_DoVanThi\TestCSharp_DoVanThi\obj\Debug\net7.0\TestCSharp_DoVanThi.csproj.CoreCompileInputs.cache
+E:\IT_THIBLUE\Learn\TestCSharp_DoVanThi\TestCSharp_DoVanThi\obj\Debug\net7.0\TestCSharp_DoVanThi.dll
+E:\IT_THIBLUE\Learn\TestCSharp_DoVanThi\TestCSharp_DoVanThi\obj\Debug\net7.0\refint\TestCSharp_DoVanThi.dll
+E:\IT_THIBLUE\Learn\TestCSharp_DoVanThi\TestCSharp_DoVanThi\obj\Debug\net7.0\TestCSharp_DoVanThi.pdb
+E:\IT_THIBLUE\Learn\TestCSharp_DoVanThi\TestCSharp_DoVanThi\obj\Debug\net7.0\TestCSharp_DoVanThi.genruntimeconfig.cache
+E:\IT_THIBLUE\Learn\TestCSharp_DoVanThi\TestCSharp_DoVanThi\obj\Debug\net7.0\ref\TestCSharp_DoVanThi.dll
