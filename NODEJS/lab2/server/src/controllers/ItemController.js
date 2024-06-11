@@ -24,7 +24,7 @@ class ItemController {
                 createdAt: format(new Date(item.createdAt), 'MMMM do yyyy, h:mm:ss a')
             }));
 
-            res.status(200).json({ success: true, message: 'Items retrieved successfully', data: formattedItems });
+            res.status(200).json({ success: true, message: 'Items retrieved successfully', data: items });
         } catch (err) {
             res.status(500).json({ success: false, message: err.message });
         }

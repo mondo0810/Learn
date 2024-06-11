@@ -1,13 +1,16 @@
-require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors'); // Import the cors module
 const sequelize = require('./db');
 const mainRouter = require('./routes/mainRouter');
 
+require('dotenv').config();
+
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 8000;
 
 app.use(bodyParser.json());
+app.use(cors({ origin: process.env.FRONTEND_URL }));
 
 // Synchronize models with the database
 sequelize.sync();
