@@ -1,0 +1,40 @@
+<%- include('header'); -%>
+
+    <br>
+    <div class="container mt-4">
+        <h2>Add Product</h2>
+        <form action="/products" method="POST" class="container">
+            <div class="form-group">
+                <label for="ProductStoreCode">Product Store Code</label>
+                <input type="text" class="form-control" id="ProductStoreCode" name="ProductStoreCode"
+                    placeholder="Store Code" required>
+            </div>
+            <div class="form-group">
+                <label for="ProductName">Product Name</label>
+                <input type="text" class="form-control" id="ProductName" name="ProductName" placeholder="Product Name"
+                    required>
+            </div>
+            <div class="form-group">
+                <label for="ProductCode">Product Code</label>
+                <input type="text" class="form-control" id="ProductCode" name="ProductCode" placeholder="Product Code"
+                    required>
+            </div>
+            <div class="form-group">
+                <label for="ProductDate">Product Date</label>
+                <input type="date" class="form-control" id="ProductDate" name="ProductDate" required>
+            </div>
+            <div class="form-group">
+                <label for="ProductOriginPrice">Product Origin Price</label>
+                <input type="number" class="form-control" id="ProductOriginPrice" name="ProductOriginPrice"
+                    placeholder="Product Origin Price" required>
+            </div>
+            <div class="form-group">
+                <label for="Quantity">Quantity</label>
+                <input type="number" class="form-control" id="Quantity" name="Quantity" placeholder="Quantity" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Add Product</button>
+        </form>
+    </div>
+    <br>
+    <%- include('footer'); -%>

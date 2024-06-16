@@ -1,0 +1,42 @@
+<%- include('header'); -%>
+
+    <div class="container mt-4">
+        <h2>Edit Product</h2>
+        <form action="/products/<%= product.id %>" method="POST">
+            <input type="hidden" name="_method" value="PUT">
+            <div class="form-group">
+                <label for="ProductStoreCode">Product Store Code</label>
+                <input type="text" class="form-control" id="ProductStoreCode" name="ProductStoreCode"
+                    value="<%= product.ProductStoreCode %>" required>
+            </div>
+            <div class="form-group">
+                <label for="ProductName">Product Name</label>
+                <input type="text" class="form-control" id="ProductName" name="ProductName"
+                    value="<%= product.ProductName %>" required>
+            </div>
+            <div class="form-group">
+                <label for="ProductCode">Product Code</label>
+                <input type="text" class="form-control" id="ProductCode" name="ProductCode"
+                    value="<%= product.ProductCode %>" required>
+            </div>
+            <div class="form-group">
+                <label for="ProductDate">Product Date</label>
+                <input type="date" class="form-control" id="ProductDate" name="ProductDate"
+                    value="<%= product.ProductDate.toISOString().slice(0, 10) %>" required>
+            </div>
+            <div class="form-group">
+                <label for="ProductOriginPrice">Product Origin Price</label>
+                <input type="number" class="form-control" id="ProductOriginPrice" name="ProductOriginPrice"
+                    value="<%= product.ProductOriginPrice %>" required>
+            </div>
+            <div class="form-group">
+                <label for="Quantity">Quantity</label>
+                <input type="number" class="form-control" id="Quantity" name="Quantity" value="<%= product.Quantity %>"
+                    required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Update Product</button>
+        </form>
+    </div>
+
+    <%- include('footer'); -%>
