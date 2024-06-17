@@ -1,0 +1,36 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ff885de4773, pid=602584, tid=330156
+#
+# JRE version: OpenJDK Runtime Environment Corretto-17.0.8.8.1 (17.0.8.1+8) (build 17.0.8.1+8-LTS)
+# Java VM: OpenJDK 64-Bit Server VM Corretto-17.0.8.8.1 (17.0.8.1+8-LTS, mixed mode, sharing, tiered, compressed oops, compressed class ptrs, g1 gc, windows-amd64)
+# Problematic frame:
+# V  [jvm.dll+0x374773]
+#
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+# If you would like to submit a bug report, please visit:
+#   https://github.com/corretto/corretto-17/issues/
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -javaagent:C:\Program Files\JetBrains\IntelliJ IDEA 2023.2.1\lib\idea_rt.jar=58361:C:\Program Files\JetBrains\IntelliJ IDEA 2023.2.1\bin -Dfile.encoding=UTF-8 DDOS.ConcurrentHttpRequestExample
+
+Host: Intel(R) Core(TM) i5-10400 CPU @ 2.90GHz, 12 cores, 31G,  Windows 10 , 64 bit Build 19041 (10.0.19041.3636)
+Time: Thu Mar 28 21:54:36 2024 SE Asia Standard Time elapsed time: 108.205744 seconds (0d 0h 1m 48s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x000001963554ead0):  JavaThread "pool-1-thread-63317" [_thread_in_vm, id=330156, stack(0x0000008116c00000,0x0000008116d00000)]
+
+Stack: [0x0000008116c00000,0x0000008116d00000],  sp=0x0000008116cff7e0,  free space=1021k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x374773]
+V  [jvm.dll+0x64c902]
+V  [jvm.dll+0x3753ab]
+V  [jvm.dll+0x375637]
+V  [jvm.dll+0x3f4ca1]
+V  [jvm.dll+0x7b94bb]
+V  [jvm.dll+0x7b392a]

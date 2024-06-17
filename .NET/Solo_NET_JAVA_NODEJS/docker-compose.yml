@@ -1,0 +1,29 @@
+version: '3.8'
+services:
+  nodejs:
+    build:
+      context: ./fibonacci-nodejs # Thư mục chứa Dockerfile của Node.js
+    ports:
+      - "3000:3000"
+    networks:
+      - app-network
+
+  dotnet:
+    build:
+      context: ./FibonacciDotnet # Thư mục chứa Dockerfile của .NET
+    ports:
+      - "5000:8080"
+    networks:
+      - app-network
+
+  java:
+    build:
+      context: ./demo # Thư mục chứa Dockerfile của Java (Spring Boot)
+    ports:
+      - "8080:8080"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
