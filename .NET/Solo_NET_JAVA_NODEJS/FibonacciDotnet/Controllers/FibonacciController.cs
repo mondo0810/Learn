@@ -8,24 +8,25 @@ namespace FibonacciDotnet.Controllers
     public class FibonacciController : ControllerBase
     {
         [HttpGet]
-        public IActionResult Get()
+        public IActionResult Get([FromQuery] int n = 5)
         {
-            // Tính toán nặng Fibonacci
-            int n = 45; // Số Fibonacci cần tính (có thể thay đổi tùy ý)
+            if (n < 0 || n >= 50)
+            {
+                return BadRequest(new { message = "Tham số n phải là một số nguyên không âm và nhỏ hơn 50." });
+            }
+
             Stopwatch stopwatch = Stopwatch.StartNew();
             long fibonacciResult = Fibonacci(n);
             stopwatch.Stop();
             long elapsedMilliseconds = stopwatch.ElapsedMilliseconds;
 
-            // Trả về kết quả dưới dạng JSON
             return Ok(new
             {
-                message = $"Hello bro nhé tuổi, Fibonacci({n}) = {fibonacciResult}",
+                message = $"Hello Đỗ Thi, Fibonacci({n}) = {fibonacciResult}",
                 timeTaken = $"{elapsedMilliseconds}ms"
             });
         }
 
-        // Phương thức tính toán số Fibonacci thứ n (cách đệ quy)
         private long Fibonacci(int n)
         {
             if (n <= 1)

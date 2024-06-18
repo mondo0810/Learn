@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fibonacci API Requests</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Prism.js for syntax highlighting (optional but recommended) -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-okaidia.min.css" rel="stylesheet">
+    <!-- D3.js -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <style>
+        .chart {
+            width: 800px;
+            height: 400px;
+        }
+
+        .legend {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+        }
+
+        .legend-item div {
+            width: 15px;
+            height: 15px;
+            margin-right: 5px;
+        }
+
+        .zoom-pane {
+            cursor: move;
+        }
+
+        .grid .tick line {
+            stroke: lightgrey;
+        }
+
+        .grid path {
+            stroke-width: 0;
+        }
+
+        pre {
+            background-color: #000;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+
+        pre code.language-java {
+            color: #589df6;
+        }
+
+        pre code.language-dotnet {
+            color: #f92472;
+        }
+    </style>
+</head>
+
+<body class="bg-light">
+    <div class="container py-4">
+        <h5 class="mb-4">Fibonacci API Requests</h5>
+        <p>Chương trình kiểm tra tính toán nặng của .NET, Spring Boot và Express.js. Đề xuất nhập số từ 20-30</p>
+        <div class="mb-3">
+            <input type="number" id="inputN" class="form-control" value="30" placeholder="Enter value for n">
+        </div>
+        <div class="mb-3">
+            <button class="btn btn-primary " onclick="sendRequests()">Send Requests</button>
+            <button class="btn btn-primary me-2" onclick="autoSendRequests()">Auto Send Random Requests</button>
+            <button class="btn btn-danger" onclick="stopAutoSend()">Stop Auto Send</button>
+
+            <label for="rangeInput">Range: <span>0-39</span></label>
+            <input type="number" id="minRange" value="10" min="0" max="39" onchange="autoSendRequests()"
+                style="width: 50px" placeholder="Enter value for minRange">
+            <input type="number" id="maxRange" value="39" min="0" max="39" onchange="autoSendRequests()"
+                style="width: 50px" placeholder="Enter value for maxRange">
+            <label for="rangeInput">Speed:</label>
+            <input type="range" id="rangeInputTime" min="1" max="100" step="1" value="50" onchange="autoSendRequests()">
+            <button class="btn btn-danger me-2" onclick="clearData()">Clear Data</button>
+
+
+        </div>
+        <h5 class="mt-4 mb-3">Results:</h5>
+        <p id="javaResult" class="mb-2">Java API: </p>
+        <p id="netResult" class="mb-2">.NET API: </p>
+        <p id="nodeResult" class="mb-2">Node.js API: </p>
+        <p id="phpResult" class="mb-2">PHP API: </p>
+
+
+        <div class="legend mb-4">
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: #1f77b4;"></div>
+                <span>Java API</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: #ff7f0e;"></div>
+                <span>.NET API</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: #2ca02c;"></div>
+                <span>Node.js API</span>
+            </div>
+        </div>
+
+        <div id="chart" class="chart"></div>
+
+        <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="java-tab" data-bs-toggle="tab" data-bs-target="#java" type="button"
+                    role="tab" aria-controls="java" aria-selected="true">Java Code</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="net-tab" data-bs-toggle="tab" data-bs-target="#net" type="button"
+                    role="tab" aria-controls="net" aria-selected="false">.NET Code</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="node-tab" data-bs-toggle="tab" data-bs-target="#node" type="button"
+                    role="tab" aria-controls="node" aria-selected="false">Node.js Code</button>
+            </li>
+        </ul>
+
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="java" role="tabpanel" aria-labelledby="java-tab">
+                <button class="btn btn-secondary mb-3" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#javaCode" aria-expanded="false" aria-controls="javaCode">Toggle Java Code</button>
+                <div class="collapse " id="javaCode">
+                    <pre><code class="language-java">package com.example.demo;
+
+                        import org.springframework.web.bind.annotation.GetMapping;
+                        import org.springframework.web.bind.annotation.RequestParam;
+                        import org.springframework.web.bind.annotation.CrossOrigin;
+                        import org.springframework.web.bind.annotation.RestController;
+                        
+                        @RestController
+                        @CrossOrigin(origins = "*")
+                        public class FibonacciController {
+                        
+                            @GetMapping("/java")
+                            public FibonacciResponse calculateFibonacci(@RequestParam(name = "n", defaultValue = "45") int n) {
+                                if (n < 0 || n >= 50) {
+                                    return new FibonacciResponse("Tham số n phải là một số nguyên không âm và nhỏ hơn 50.", "0ms");
+                                }
+                        
+                                long startTime = System.nanoTime();
+                                long fibonacciResult = fibonacci(n);
+                                long endTime = System.nanoTime();
+                                double elapsedMilliseconds = (endTime - startTime) / 1e6;
+                        
+                                return new FibonacciResponse(
+                                        String.format("Hello bro nhé tuổi, Fibonacci(%d) = %d", n, fibonacciResult),
+                                        String.format("%.2fms", elapsedMilliseconds)
+                                );
+                            }
+                        
+                            private long fibonacci(int n) {
+                                if (n <= 1) return n;
+                                return fibonacci(n - 1) + fibonacci(n - 2);
+                            }
+                        
+                            private static class FibonacciResponse {
+                                private String message;
+                                private String timeTaken;
+                        
+                                public FibonacciResponse(String message, String timeTaken) {
+                                    this.message = message;
+                                    this.timeTaken = timeTaken;
+                                }
+                        
+                                public String getMessage() { return message; }
+                                public String getTimeTaken() { return timeTaken; }
+                            }
+                        }
+                        
+                        </code></pre>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="net" role="tabpanel" aria-labelledby="net-tab">
+                <button class="btn btn-secondary mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#netCode"
+                    aria-expanded="false" aria-controls="netCode">Toggle .NET Code</button>
+                <div class="collapse" id="netCode">
+                    <pre><code class="language-dotnet">using Microsoft.AspNetCore.Mvc;
+                        using System.Diagnostics;
+                        
+                        namespace FibonacciDotnet.Controllers
+                        {
+                            [ApiController]
+                            [Route("net")]
+                            public class FibonacciController : ControllerBase
+                            {
+                                [HttpGet]
+                                public IActionResult Get([FromQuery] int n = 45)
+                                {
+                                    if (n < 0 || n >= 50)
+                                    {
+                                        return BadRequest(new { message = "Tham số n phải là một số nguyên không âm và nhỏ hơn 50." });
+                                    }
+                        
+                                    Stopwatch stopwatch = Stopwatch.StartNew();
+                                    long fibonacciResult = Fibonacci(n);
+                                    stopwatch.Stop();
+                                    long elapsedMilliseconds = stopwatch.ElapsedMilliseconds;
+                        
+                                    return Ok(new
+                                    {
+                                        message = $"Fibonacci({n}) = {fibonacciResult}",
+                                        timeTaken = $"{elapsedMilliseconds}ms"
+                                    });
+                                }
+                        
+                                private long Fibonacci(int n)
+                                {
+                                    if (n <= 1)
+                                        return n;
+                                    return Fibonacci(n - 1) + Fibonacci(n - 2);
+                                }
+                            }
+                        }
+                        
+                        </code></pre>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="node" role="tabpanel" aria-labelledby="node-tab">
+                <button class="btn btn-secondary mb-3" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#nodeCode" aria-expanded="false" aria-controls="nodeCode">Toggle Node.js
+                    Code</button>
+                <div class="collapse" id="nodeCode">
+                    <pre><code>const express = require('express');
+                        const cors = require('cors');
+                        const app = express();
+                        const port = 3000;
+                        
+                        app.use(cors());
+                        
+                        function fibonacci(n) {
+                            if (n <= 1) return n;
+                            return fibonacci(n - 1) + fibonacci(n - 2);
+                        }
+                        
+                        app.get('/node', (req, res) => {
+                            const n = parseInt(req.query.n, 10) || 45;
+                            if (isNaN(n) || n < 0 || n >= 50) {
+                                return res.status(400).json({
+                                    message: 'Tham số n phải là một số nguyên không âm và nhỏ hơn 50.',
+                                    timeTaken: '0ms'
+                                });
+                            }
+                        
+                            const startTime = process.hrtime();
+                            const fibonacciResult = fibonacci(n);
+                            const elapsedHrTime = process.hrtime(startTime);
+                            const elapsedMilliseconds = elapsedHrTime[0] * 1000 + elapsedHrTime[1] / 1e6;
+                        
+                            res.json({
+                                message: `Fibonacci(${n}) = ${fibonacciResult}`,
+                                timeTaken: `${elapsedMilliseconds.toFixed(2)}ms`
+                            });
+                        });
+                        
+                        app.listen(port, () => {
+                            console.log(`Server is running at http://localhost:${port}`);
+                        });
+                        
+                        </code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and your custom JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <!-- Prism.js for syntax highlighting (optional but recommended) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
