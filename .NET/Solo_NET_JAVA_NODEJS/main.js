@@ -114,7 +114,7 @@ function drawChart() {
 
     const margin = { top: 50, right: 30, bottom: 120, left: 60 };
     const width = 800 - margin.left - margin.right;
-    const height = 400 - margin.top - margin.bottom;
+    const height = 600 - margin.top - margin.bottom;
 
     // Create SVG for line chart
     const svgLine = d3.select("#chart")

@@ -18,12 +18,12 @@ namespace FibonacciDotnet.Controllers
             Stopwatch stopwatch = Stopwatch.StartNew();
             long fibonacciResult = Fibonacci(n);
             stopwatch.Stop();
-            long elapsedMilliseconds = stopwatch.ElapsedMilliseconds;
+            double elapsedMilliseconds = stopwatch.Elapsed.TotalMilliseconds;
 
             return Ok(new
             {
                 message = $"Hello Đỗ Thi, Fibonacci({n}) = {fibonacciResult}",
-                timeTaken = $"{elapsedMilliseconds}ms"
+                timeTaken = $"{elapsedMilliseconds:F2}ms"
             });
         }
 

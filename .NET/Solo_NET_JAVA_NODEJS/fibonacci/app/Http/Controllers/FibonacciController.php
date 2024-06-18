@@ -22,7 +22,7 @@ class FibonacciController extends Controller
 
         return response()->json([
             'message' => "Hello Đỗ Thi, Fibonacci($n) = $fibonacciResult",
-            'timeTaken' => $timeTaken * 1000 . 'ms'
+            'timeTaken' => round($timeTaken * 1000, 2) . 'ms'
         ]);
     }
 

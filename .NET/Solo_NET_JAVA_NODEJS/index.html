@@ -125,6 +125,10 @@
                 <button class="nav-link" id="node-tab" data-bs-toggle="tab" data-bs-target="#node" type="button"
                     role="tab" aria-controls="node" aria-selected="false">Node.js Code</button>
             </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="php-tab" data-bs-toggle="tab" data-bs-target="#php" type="button"
+                    role="tab" aria-controls="php" aria-selected="false">PHP Code</button>
+            </li>
         </ul>
 
         <div class="tab-content" id="myTabContent">
@@ -268,6 +272,50 @@
                             console.log(`Server is running at http://localhost:${port}`);
                         });
                         
+                        </code></pre>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="php" role="tabpanel" aria-labelledby="php-tab">
+                <button class="btn btn-secondary mb-3" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#nodeCode" aria-expanded="false" aria-controls="phpCode">Toggle PHP
+                    Code</button>
+                <div class="collapse" id="nodeCode">
+                    <pre><code>
+                        namespace App\Http\Controllers;
+                        
+                        use Illuminate\Http\Request;
+                        
+                        class FibonacciController extends Controller
+                        {
+                            public function getFibonacci(Request $request)
+                            {
+                                $n = $request->query('n', 5);
+                        
+                                if (!is_numeric($n) || $n < 0 || $n >= 50) {
+                                    return response()->json([
+                                        'message' => 'Tham số n phải là một số nguyên không âm và nhỏ hơn 50.'
+                                    ], 400);
+                                }
+                        
+                                $start = microtime(true);
+                                $fibonacciResult = $this->fibonacci($n);
+                                $timeTaken = microtime(true) - $start;
+                        
+                                return response()->json([
+                                    'message' => "Hello Đỗ Thi, Fibonacci($n) = $fibonacciResult",
+                                    'timeTaken' => round($timeTaken * 1000, 2) . 'ms'
+                                ]);
+                            }
+                        
+                            private function fibonacci($n)
+                            {
+                                if ($n <= 1) {
+                                    return $n;
+                                }
+                                return $this->fibonacci($n - 1) + $this->fibonacci($n - 2);
+                            }
+                        }
                         </code></pre>
                 </div>
             </div>
