@@ -1,4 +1,4 @@
-version: '3.8'
+version: "3.8"
 services:
   nodejs:
     build:
@@ -18,7 +18,7 @@ services:
 
   java:
     build:
-      context: ./demo # Thư mục chứa Dockerfile của Java (Spring Boot)
+      context: ./FibonacciSpring # Thư mục chứa Dockerfile của Java (Spring Boot)
     ports:
       - "8080:8080"
     networks:

@@ -1,5 +1,5 @@
 # Sử dụng OpenJDK 22 làm base image
-FROM openjdk:22-jdk
+FROM openjdk:17-jdk
 
 # Thiết lập thư mục làm việc
 WORKDIR /edumall-app

@@ -1,5 +1,5 @@
 # Sử dụng Node.js 12 LTS (Long Term Support) làm base image
-FROM node:12-alpine
+FROM node:22
 
 # Thiết lập thư mục làm việc
 WORKDIR /usr/src/app
