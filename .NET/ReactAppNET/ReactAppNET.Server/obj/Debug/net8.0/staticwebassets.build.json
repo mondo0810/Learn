@@ -1,0 +1,23 @@
+{
+  "Version": 1,
+  "Hash": "+C2nQRGTdCIxlqxt4GUs8oz2yWHGn+JlSnnlSQuc3F8=",
+  "Source": "ReactAppNET.Server",
+  "BasePath": "_content/ReactAppNET.Server",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [
+    {
+      "Identity": "E:\\IT_THIBLUE\\Learn\\.NET\\ReactAppNET\\reactappnet.client\\reactappnet.client.esproj",
+      "Version": 2,
+      "Source": "reactappnet.client",
+      "GetPublishAssetsTargets": "GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained"
+    }
+  ],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

@@ -1,0 +1,190 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\IT_THIBLUE\\Learn\\.NET\\ReactAppNET\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9C50D99B-1B28-4A9D-BB4B-AF84BF3F0E10}|ReactAppNET.Server\\ReactAppNET.Server.csproj|e:\\it_thiblue\\learn\\.net\\reactappnet\\reactappnet.server\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{9C50D99B-1B28-4A9D-BB4B-AF84BF3F0E10}|ReactAppNET.Server\\ReactAppNET.Server.csproj|solutionrelative:reactappnet.server\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9C50D99B-1B28-4A9D-BB4B-AF84BF3F0E10}|ReactAppNET.Server\\ReactAppNET.Server.csproj|e:\\it_thiblue\\learn\\.net\\reactappnet\\reactappnet.server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9C50D99B-1B28-4A9D-BB4B-AF84BF3F0E10}|ReactAppNET.Server\\ReactAppNET.Server.csproj|solutionrelative:reactappnet.server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9C50D99B-1B28-4A9D-BB4B-AF84BF3F0E10}|ReactAppNET.Server\\ReactAppNET.Server.csproj|e:\\it_thiblue\\learn\\.net\\reactappnet\\reactappnet.server\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9C50D99B-1B28-4A9D-BB4B-AF84BF3F0E10}|ReactAppNET.Server\\ReactAppNET.Server.csproj|solutionrelative:reactappnet.server\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9C50D99B-1B28-4A9D-BB4B-AF84BF3F0E10}|ReactAppNET.Server\\ReactAppNET.Server.csproj|e:\\it_thiblue\\learn\\.net\\reactappnet\\reactappnet.server\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9C50D99B-1B28-4A9D-BB4B-AF84BF3F0E10}|ReactAppNET.Server\\ReactAppNET.Server.csproj|solutionrelative:reactappnet.server\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A51C39D-F186-490D-9571-432C01DF5304}|reactappnet.client\\reactappnet.client.esproj|e:\\it_thiblue\\learn\\.net\\reactappnet\\reactappnet.client\\src\\app.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{4A51C39D-F186-490D-9571-432C01DF5304}|reactappnet.client\\reactappnet.client.esproj|solutionrelative:reactappnet.client\\src\\app.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A51C39D-F186-490D-9571-432C01DF5304}|reactappnet.client\\reactappnet.client.esproj|e:\\it_thiblue\\learn\\.net\\reactappnet\\reactappnet.client\\src\\main.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{4A51C39D-F186-490D-9571-432C01DF5304}|reactappnet.client\\reactappnet.client.esproj|solutionrelative:reactappnet.client\\src\\main.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A51C39D-F186-490D-9571-432C01DF5304}|reactappnet.client\\reactappnet.client.esproj|e:\\it_thiblue\\learn\\.net\\reactappnet\\reactappnet.client\\package.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{4A51C39D-F186-490D-9571-432C01DF5304}|reactappnet.client\\reactappnet.client.esproj|solutionrelative:reactappnet.client\\package.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A51C39D-F186-490D-9571-432C01DF5304}|reactappnet.client\\reactappnet.client.esproj|e:\\it_thiblue\\learn\\.net\\reactappnet\\reactappnet.client\\.eslintrc.cjs||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{4A51C39D-F186-490D-9571-432C01DF5304}|reactappnet.client\\reactappnet.client.esproj|solutionrelative:reactappnet.client\\.eslintrc.cjs||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A51C39D-F186-490D-9571-432C01DF5304}|reactappnet.client\\reactappnet.client.esproj|e:\\it_thiblue\\learn\\.net\\reactappnet\\reactappnet.client\\src\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{4A51C39D-F186-490D-9571-432C01DF5304}|reactappnet.client\\reactappnet.client.esproj|solutionrelative:reactappnet.client\\src\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A51C39D-F186-490D-9571-432C01DF5304}|reactappnet.client\\reactappnet.client.esproj|e:\\it_thiblue\\learn\\.net\\reactappnet\\reactappnet.client\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{4A51C39D-F186-490D-9571-432C01DF5304}|reactappnet.client\\reactappnet.client.esproj|solutionrelative:reactappnet.client\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "E:\\IT_THIBLUE\\Learn\\.NET\\ReactAppNET\\ReactAppNET.Server\\appsettings.json",
+              "RelativeDocumentMoniker": "ReactAppNET.Server\\appsettings.json",
+              "ToolTip": "E:\\IT_THIBLUE\\Learn\\.NET\\ReactAppNET\\ReactAppNET.Server\\appsettings.json",
+              "RelativeToolTip": "ReactAppNET.Server\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-06-27T13:43:19.406Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "E:\\IT_THIBLUE\\Learn\\.NET\\ReactAppNET\\ReactAppNET.Server\\Program.cs",
+              "RelativeDocumentMoniker": "ReactAppNET.Server\\Program.cs",
+              "ToolTip": "E:\\IT_THIBLUE\\Learn\\.NET\\ReactAppNET\\ReactAppNET.Server\\Program.cs",
+              "RelativeToolTip": "ReactAppNET.Server\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAABWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-27T13:42:23.008Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "E:\\IT_THIBLUE\\Learn\\.NET\\ReactAppNET\\ReactAppNET.Server\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "ReactAppNET.Server\\ApplicationDbContext.cs",
+              "ToolTip": "E:\\IT_THIBLUE\\Learn\\.NET\\ReactAppNET\\ReactAppNET.Server\\ApplicationDbContext.cs",
+              "RelativeToolTip": "ReactAppNET.Server\\ApplicationDbContext.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-27T13:37:11.255Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "User.cs",
+              "DocumentMoniker": "E:\\IT_THIBLUE\\Learn\\.NET\\ReactAppNET\\ReactAppNET.Server\\Models\\User.cs",
+              "RelativeDocumentMoniker": "ReactAppNET.Server\\Models\\User.cs",
+              "ToolTip": "E:\\IT_THIBLUE\\Learn\\.NET\\ReactAppNET\\ReactAppNET.Server\\Models\\User.cs",
+              "RelativeToolTip": "ReactAppNET.Server\\Models\\User.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-27T13:35:08.966Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "main.jsx",
+              "DocumentMoniker": "E:\\IT_THIBLUE\\Learn\\.NET\\ReactAppNET\\reactappnet.client\\src\\main.jsx",
+              "RelativeDocumentMoniker": "reactappnet.client\\src\\main.jsx",
+              "ToolTip": "E:\\IT_THIBLUE\\Learn\\.NET\\ReactAppNET\\reactappnet.client\\src\\main.jsx",
+              "RelativeToolTip": "reactappnet.client\\src\\main.jsx",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2024-06-27T13:34:13.453Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "package.json",
+              "DocumentMoniker": "E:\\IT_THIBLUE\\Learn\\.NET\\ReactAppNET\\reactappnet.client\\package.json",
+              "RelativeDocumentMoniker": "reactappnet.client\\package.json",
+              "ToolTip": "E:\\IT_THIBLUE\\Learn\\.NET\\ReactAppNET\\reactappnet.client\\package.json",
+              "RelativeToolTip": "reactappnet.client\\package.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-06-27T13:33:56.731Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": ".eslintrc.cjs",
+              "DocumentMoniker": "E:\\IT_THIBLUE\\Learn\\.NET\\ReactAppNET\\reactappnet.client\\.eslintrc.cjs",
+              "RelativeDocumentMoniker": "reactappnet.client\\.eslintrc.cjs",
+              "ToolTip": "E:\\IT_THIBLUE\\Learn\\.NET\\ReactAppNET\\reactappnet.client\\.eslintrc.cjs",
+              "RelativeToolTip": "reactappnet.client\\.eslintrc.cjs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-06-27T13:33:26.031Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "App.css",
+              "DocumentMoniker": "E:\\IT_THIBLUE\\Learn\\.NET\\ReactAppNET\\reactappnet.client\\src\\App.css",
+              "RelativeDocumentMoniker": "reactappnet.client\\src\\App.css",
+              "ToolTip": "E:\\IT_THIBLUE\\Learn\\.NET\\ReactAppNET\\reactappnet.client\\src\\App.css",
+              "RelativeToolTip": "reactappnet.client\\src\\App.css",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-06-27T13:31:52.903Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": ".gitignore",
+              "DocumentMoniker": "E:\\IT_THIBLUE\\Learn\\.NET\\ReactAppNET\\reactappnet.client\\.gitignore",
+              "RelativeDocumentMoniker": "reactappnet.client\\.gitignore",
+              "ToolTip": "E:\\IT_THIBLUE\\Learn\\.NET\\ReactAppNET\\reactappnet.client\\.gitignore",
+              "RelativeToolTip": "reactappnet.client\\.gitignore",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAABIAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-06-27T13:30:39.007Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "App.jsx",
+              "DocumentMoniker": "E:\\IT_THIBLUE\\Learn\\.NET\\ReactAppNET\\reactappnet.client\\src\\App.jsx",
+              "RelativeDocumentMoniker": "reactappnet.client\\src\\App.jsx",
+              "ToolTip": "E:\\IT_THIBLUE\\Learn\\.NET\\ReactAppNET\\reactappnet.client\\src\\App.jsx",
+              "RelativeToolTip": "reactappnet.client\\src\\App.jsx",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2024-06-27T13:30:03.253Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
