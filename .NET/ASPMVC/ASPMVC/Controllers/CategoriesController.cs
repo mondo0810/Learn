@@ -5,27 +5,27 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using ASPAPI;
-using ASPAPI.Models;
+using ASPMVC;
+using ASPMVC.Models;
 
-namespace ASPAPI.Controllers
+namespace ASPMVC.Controllers
 {
-    public class Subjects1Controller : Controller
+    public class CategoriesController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public Subjects1Controller(ApplicationDbContext context)
+        public CategoriesController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: Subjects1
+        // GET: Categories
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Subjects.ToListAsync());
+            return View(await _context.Category.ToListAsync());
         }
 
-        // GET: Subjects1/Details/5
+        // GET: Categories/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,39 +33,51 @@ namespace ASPAPI.Controllers
                 return NotFound();
             }
 
-            var subject = await _context.Subjects
+            var category = await _context.Category
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (subject == null)
+            if (category == null)
             {
                 return NotFound();
             }
 
-            return View(subject);
+            return View(category);
         }
 
-        // GET: Subjects1/Create
+        // GET: Categories/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Subjects1/Create
+        // POST: Categories/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,StartTime,ExamDate,Duration,ClassRoom,Faculty,Status")] Subject subject)
+        public async Task<IActionResult> Create([Bind("Id,Name,Description,Picture")] Category category)
         {
-            if (ModelState.IsValid)
+            try
             {
-                _context.Add(subject);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                if (ModelState.IsValid)
+                {
+                    _context.Add(category);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
+                return View(category);
             }
-            return View(subject);
+            catch (Exception ex)
+            {
+                // Ghi log lỗi vào đây
+                Console.WriteLine($"An error occurred while saving the category: {ex.Message}");
+                // Xử lý ngoại lệ tại đây, ví dụ ghi log, hiển thị thông báo lỗi, vv.
+                ModelState.AddModelError(string.Empty, "An error occurred while saving the category.");
+                return View(category);
+            }
         }
 
-        // GET: Subjects1/Edit/5
+
+        // GET: Categories/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -73,22 +85,22 @@ namespace ASPAPI.Controllers
                 return NotFound();
             }
 
-            var subject = await _context.Subjects.FindAsync(id);
-            if (subject == null)
+            var category = await _context.Category.FindAsync(id);
+            if (category == null)
             {
                 return NotFound();
             }
-            return View(subject);
+            return View(category);
         }
 
-        // POST: Subjects1/Edit/5
+        // POST: Categories/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,StartTime,ExamDate,Duration,ClassRoom,Faculty,Status")] Subject subject)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Description,Picture")] Category category)
         {
-            if (id != subject.Id)
+            if (id != category.Id)
             {
                 return NotFound();
             }
@@ -97,12 +109,12 @@ namespace ASPAPI.Controllers
             {
                 try
                 {
-                    _context.Update(subject);
+                    _context.Update(category);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!SubjectExists(subject.Id))
+                    if (!CategoryExists(category.Id))
                     {
                         return NotFound();
                     }
@@ -113,10 +125,10 @@ namespace ASPAPI.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(subject);
+            return View(category);
         }
 
-        // GET: Subjects1/Delete/5
+        // GET: Categories/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -124,34 +136,34 @@ namespace ASPAPI.Controllers
                 return NotFound();
             }
 
-            var subject = await _context.Subjects
+            var category = await _context.Category
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (subject == null)
+            if (category == null)
             {
                 return NotFound();
             }
 
-            return View(subject);
+            return View(category);
         }
 
-        // POST: Subjects1/Delete/5
+        // POST: Categories/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var subject = await _context.Subjects.FindAsync(id);
-            if (subject != null)
+            var category = await _context.Category.FindAsync(id);
+            if (category != null)
             {
-                _context.Subjects.Remove(subject);
+                _context.Category.Remove(category);
             }
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool SubjectExists(int id)
+        private bool CategoryExists(int id)
         {
-            return _context.Subjects.Any(e => e.Id == id);
+            return _context.Category.Any(e => e.Id == id);
         }
     }
 }

@@ -5,54 +5,54 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using ASPAPI;
-using ASPAPI.Models;
+using ASPMVC;
+using ASPMVC.Models;
 
-namespace ASPAPI.Controllers
+namespace ASPMVC.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class SubjectsController : ControllerBase
+    public class Categories1Controller : ControllerBase
     {
         private readonly ApplicationDbContext _context;
 
-        public SubjectsController(ApplicationDbContext context)
+        public Categories1Controller(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: api/Subjects
+        // GET: api/Categories1
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Subject>>> GetSubjects()
+        public async Task<ActionResult<IEnumerable<Category>>> GetCategory()
         {
-            return await _context.Subjects.ToListAsync();
+            return await _context.Category.ToListAsync();
         }
 
-        // GET: api/Subjects/5
+        // GET: api/Categories1/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Subject>> GetSubject(int id)
+        public async Task<ActionResult<Category>> GetCategory(int id)
         {
-            var subject = await _context.Subjects.FindAsync(id);
+            var category = await _context.Category.FindAsync(id);
 
-            if (subject == null)
+            if (category == null)
             {
                 return NotFound();
             }
 
-            return subject;
+            return category;
         }
 
-        // PUT: api/Subjects/5
+        // PUT: api/Categories1/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutSubject(int id, Subject subject)
+        public async Task<IActionResult> PutCategory(int id, Category category)
         {
-            if (id != subject.Id)
+            if (id != category.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(subject).State = EntityState.Modified;
+            _context.Entry(category).State = EntityState.Modified;
 
             try
             {
@@ -60,7 +60,7 @@ namespace ASPAPI.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!SubjectExists(id))
+                if (!CategoryExists(id))
                 {
                     return NotFound();
                 }
@@ -73,36 +73,36 @@ namespace ASPAPI.Controllers
             return NoContent();
         }
 
-        // POST: api/Subjects
+        // POST: api/Categories1
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Subject>> PostSubject(Subject subject)
+        public async Task<ActionResult<Category>> PostCategory(Category category)
         {
-            _context.Subjects.Add(subject);
+            _context.Category.Add(category);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetSubject", new { id = subject.Id }, subject);
+            return CreatedAtAction("GetCategory", new { id = category.Id }, category);
         }
 
-        // DELETE: api/Subjects/5
+        // DELETE: api/Categories1/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteSubject(int id)
+        public async Task<IActionResult> DeleteCategory(int id)
         {
-            var subject = await _context.Subjects.FindAsync(id);
-            if (subject == null)
+            var category = await _context.Category.FindAsync(id);
+            if (category == null)
             {
                 return NotFound();
             }
 
-            _context.Subjects.Remove(subject);
+            _context.Category.Remove(category);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool SubjectExists(int id)
+        private bool CategoryExists(int id)
         {
-            return _context.Subjects.Any(e => e.Id == id);
+            return _context.Category.Any(e => e.Id == id);
         }
     }
 }

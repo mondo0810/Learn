@@ -23,11 +23,7 @@ namespace ASPMVC.Models
 
         public string Status { get; set; }
 
-        // Foreign key property
-        public int UserId { get; set; }
 
-        // Navigation property for the User relationship
-        [ForeignKey("UserId")]
-        public User User { get; set; }
+
     }
 }

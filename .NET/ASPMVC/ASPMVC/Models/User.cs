@@ -23,7 +23,5 @@ namespace ASPMVC.Models
         [StringLength(50, ErrorMessage = "Phone number must be less than 50 characters")]
         public string PhoneNumber { get; set; }
 
-        // Navigation property for the Subject relationship
-        public ICollection<Subject> Subjects { get; set; }
     }
 }
