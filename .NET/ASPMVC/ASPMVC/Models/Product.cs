@@ -18,6 +18,6 @@ namespace ASPMVC.Models
         public int Discontinued { get; set; }
 
         [ForeignKey("CategoryId")]
-        public Category Category { get; set; }
+        public Category? Category { get; set; }
     }
 }

@@ -5,13 +5,9 @@ namespace ASPAPI.Models;
 
 public partial class Category
 {
-    public int CategoryId { get; set; }
+    public int Id { get; set; }
 
-    public string CategoryName { get; set; } = null!;
-
-    public string? Description { get; set; }
-
-    public string? Picture { get; set; }
+    public string? Name { get; set; }
 
     public virtual ICollection<Product> Products { get; set; } = new List<Product>();
 }

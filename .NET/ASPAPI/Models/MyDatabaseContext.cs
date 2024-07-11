@@ -27,31 +27,32 @@ public partial class MyDatabaseContext : DbContext
     {
         modelBuilder.Entity<Category>(entity =>
         {
-            entity.HasKey(e => e.CategoryId).HasName("PK__Category__19093A2BA8E8FA7A");
+            entity.HasKey(e => e.Id).HasName("Category_PK");
 
             entity.ToTable("Category");
 
-            entity.Property(e => e.CategoryId)
-                .ValueGeneratedNever()
-                .HasColumnName("CategoryID");
-            entity.Property(e => e.CategoryName).HasMaxLength(255);
+            entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.Name)
+                .HasColumnType("text")
+                .HasColumnName("name");
         });
 
         modelBuilder.Entity<Product>(entity =>
         {
-            entity.HasKey(e => e.ProductId).HasName("PK__Product__B40CC6ED02BB4CA0");
+            entity.HasKey(e => e.Id).HasName("Product_PK");
 
             entity.ToTable("Product");
 
-            entity.Property(e => e.ProductId)
-                .ValueGeneratedNever()
-                .HasColumnName("ProductID");
-            entity.Property(e => e.CategoryId).HasColumnName("CategoryID");
-            entity.Property(e => e.ProductName).HasMaxLength(255);
+            entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.CategoryId).HasColumnName("category_id");
+            entity.Property(e => e.Name)
+                .HasMaxLength(100)
+                .IsUnicode(false)
+                .HasColumnName("name");
 
             entity.HasOne(d => d.Category).WithMany(p => p.Products)
                 .HasForeignKey(d => d.CategoryId)
-                .HasConstraintName("FK_Product_Category");
+                .HasConstraintName("Product_FK");
         });
 
         OnModelCreatingPartial(modelBuilder);

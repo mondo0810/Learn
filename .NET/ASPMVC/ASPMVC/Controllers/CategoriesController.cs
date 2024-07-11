@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ASPMVC;
 using ASPMVC.Models;
+using System.Diagnostics;
 
 namespace ASPMVC.Controllers
 {
@@ -20,10 +21,52 @@ namespace ASPMVC.Controllers
         }
 
         // GET: Categories
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string sortOrder, string currentFilter, string searchString, int? pageNumber)
         {
-            return View(await _context.Category.ToListAsync());
+            ViewData["CurrentSort"] = sortOrder;
+            ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewData["DescriptionSortParm"] = sortOrder == "Description" ? "description_desc" : "Description";
+
+            if (searchString != null)
+            {
+                pageNumber = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            ViewData["CurrentFilter"] = searchString;
+
+            var categories = from c in _context.Category
+                             select c;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                categories = categories.Where(c => c.Name.Contains(searchString)
+                                       || c.Description.Contains(searchString));
+            }
+
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    categories = categories.OrderByDescending(c => c.Name);
+                    break;
+                case "Description":
+                    categories = categories.OrderBy(c => c.Description);
+                    break;
+                case "description_desc":
+                    categories = categories.OrderByDescending(c => c.Description);
+                    break;
+                default:
+                    categories = categories.OrderBy(c => c.Name);
+                    break;
+            }
+
+            int pageSize = 3;
+            return View(await PaginatedList<Category>.CreateAsync(categories.AsNoTracking(), pageNumber ?? 1, pageSize));
         }
+
 
         // GET: Categories/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -54,17 +97,23 @@ namespace ASPMVC.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Description,Picture")] Category category)
+        public async Task<IActionResult> Create([Bind("Id,Name,Description,Picture,CreatedAt")] Category category)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
+                    Debug.WriteLine("Check 2");
+
                     _context.Add(category);
                     await _context.SaveChangesAsync();
                     return RedirectToAction(nameof(Index));
                 }
-                return View(category);
+                else
+                {
+                    Debug.WriteLine("Check 3");
+                }
+                return View();
             }
             catch (Exception ex)
             {
