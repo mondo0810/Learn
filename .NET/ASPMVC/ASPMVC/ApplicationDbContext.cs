@@ -11,10 +11,8 @@ namespace ASPMVC
         {
         }
 
-        public DbSet<Subject> Subjects { get; set; }
-        public DbSet<User> Users { get; set; }
-        public DbSet<Category> Category { get; set; }
-        public DbSet<Product> Product { get; set; }
+        public DbSet<Department> Departments { get; set; }
+        public DbSet<Employee> Employees { get; set; }
 
         public override int SaveChanges()
         {
@@ -44,6 +42,8 @@ namespace ASPMVC
                 ((BaseEntity)entity.Entity).UpdatedAt = now;
             }
         }
+        public DbSet<ASPMVC.Models.Employee> Employee { get; set; } = default!;
+        public DbSet<ASPMVC.Models.Department> Department { get; set; } = default!;
 
     }
 }

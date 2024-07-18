@@ -10,22 +10,22 @@ using ASPMVC.Models;
 
 namespace ASPMVC.Controllers
 {
-    public class UsersController : Controller
+    public class DepartmentsController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public UsersController(ApplicationDbContext context)
+        public DepartmentsController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: Users
+        // GET: Departments
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Users.ToListAsync());
+            return View(await _context.Department.ToListAsync());
         }
 
-        // GET: Users/Details/5
+        // GET: Departments/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,39 +33,39 @@ namespace ASPMVC.Controllers
                 return NotFound();
             }
 
-            var user = await _context.Users
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (user == null)
+            var department = await _context.Department
+                .FirstOrDefaultAsync(m => m.DepartmentId == id);
+            if (department == null)
             {
                 return NotFound();
             }
 
-            return View(user);
+            return View(department);
         }
 
-        // GET: Users/Create
+        // GET: Departments/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Users/Create
+        // POST: Departments/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Email,Password,Age,PhoneNumber")] User user)
+        public async Task<IActionResult> Create([Bind("DepartmentId,DepartmentName,DepartmentCode,Location,NumberOfPersonals")] Department department)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(user);
+                _context.Add(department);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(user);
+            return View(department);
         }
 
-        // GET: Users/Edit/5
+        // GET: Departments/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -73,22 +73,22 @@ namespace ASPMVC.Controllers
                 return NotFound();
             }
 
-            var user = await _context.Users.FindAsync(id);
-            if (user == null)
+            var department = await _context.Department.FindAsync(id);
+            if (department == null)
             {
                 return NotFound();
             }
-            return View(user);
+            return View(department);
         }
 
-        // POST: Users/Edit/5
+        // POST: Departments/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Email,Password,Age,PhoneNumber")] User user)
+        public async Task<IActionResult> Edit(int id, [Bind("DepartmentId,DepartmentName,DepartmentCode,Location,NumberOfPersonals")] Department department)
         {
-            if (id != user.Id)
+            if (id != department.DepartmentId)
             {
                 return NotFound();
             }
@@ -97,12 +97,12 @@ namespace ASPMVC.Controllers
             {
                 try
                 {
-                    _context.Update(user);
+                    _context.Update(department);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!UserExists(user.Id))
+                    if (!DepartmentExists(department.DepartmentId))
                     {
                         return NotFound();
                     }
@@ -113,10 +113,10 @@ namespace ASPMVC.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(user);
+            return View(department);
         }
 
-        // GET: Users/Delete/5
+        // GET: Departments/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -124,34 +124,34 @@ namespace ASPMVC.Controllers
                 return NotFound();
             }
 
-            var user = await _context.Users
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (user == null)
+            var department = await _context.Department
+                .FirstOrDefaultAsync(m => m.DepartmentId == id);
+            if (department == null)
             {
                 return NotFound();
             }
 
-            return View(user);
+            return View(department);
         }
 
-        // POST: Users/Delete/5
+        // POST: Departments/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var user = await _context.Users.FindAsync(id);
-            if (user != null)
+            var department = await _context.Department.FindAsync(id);
+            if (department != null)
             {
-                _context.Users.Remove(user);
+                _context.Department.Remove(department);
             }
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool UserExists(int id)
+        private bool DepartmentExists(int id)
         {
-            return _context.Users.Any(e => e.Id == id);
+            return _context.Department.Any(e => e.DepartmentId == id);
         }
     }
 }
