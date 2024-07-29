@@ -5,54 +5,53 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using ASPAPI;
 using ASPAPI.Models;
 
 namespace ASPAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class SubjectsController : ControllerBase
+    public class ProductsController : ControllerBase
     {
-        private readonly ApplicationDbContext _context;
+        private readonly MyDatabaseContext _context;
 
-        public SubjectsController(ApplicationDbContext context)
+        public ProductsController(MyDatabaseContext context)
         {
             _context = context;
         }
 
-        // GET: api/Subjects
+        // GET: api/Products
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Subject>>> GetSubjects()
+        public async Task<ActionResult<IEnumerable<Product>>> GetProducts()
         {
-            return await _context.Subjects.ToListAsync();
+            return await _context.Products.ToListAsync();
         }
 
-        // GET: api/Subjects/5
+        // GET: api/Products/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Subject>> GetSubject(int id)
+        public async Task<ActionResult<Product>> GetProduct(int id)
         {
-            var subject = await _context.Subjects.FindAsync(id);
+            var product = await _context.Products.FindAsync(id);
 
-            if (subject == null)
+            if (product == null)
             {
                 return NotFound();
             }
 
-            return subject;
+            return product;
         }
 
-        // PUT: api/Subjects/5
+        // PUT: api/Products/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutSubject(int id, Subject subject)
+        public async Task<IActionResult> PutProduct(int id, Product product)
         {
-            if (id != subject.Id)
+            if (id != product.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(subject).State = EntityState.Modified;
+            _context.Entry(product).State = EntityState.Modified;
 
             try
             {
@@ -60,7 +59,7 @@ namespace ASPAPI.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!SubjectExists(id))
+                if (!ProductExists(id))
                 {
                     return NotFound();
                 }
@@ -73,36 +72,36 @@ namespace ASPAPI.Controllers
             return NoContent();
         }
 
-        // POST: api/Subjects
+        // POST: api/Products
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Subject>> PostSubject(Subject subject)
+        public async Task<ActionResult<Product>> PostProduct(Product product)
         {
-            _context.Subjects.Add(subject);
+            _context.Products.Add(product);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetSubject", new { id = subject.Id }, subject);
+            return CreatedAtAction("GetProduct", new { id = product.Id }, product);
         }
 
-        // DELETE: api/Subjects/5
+        // DELETE: api/Products/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteSubject(int id)
+        public async Task<IActionResult> DeleteProduct(int id)
         {
-            var subject = await _context.Subjects.FindAsync(id);
-            if (subject == null)
+            var product = await _context.Products.FindAsync(id);
+            if (product == null)
             {
                 return NotFound();
             }
 
-            _context.Subjects.Remove(subject);
+            _context.Products.Remove(product);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool SubjectExists(int id)
+        private bool ProductExists(int id)
         {
-            return _context.Subjects.Any(e => e.Id == id);
+            return _context.Products.Any(e => e.Id == id);
         }
     }
 }
