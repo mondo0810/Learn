@@ -1,0 +1,17 @@
+﻿@model exam.Models.Employee
+
+<h1 class="header-thumnail"> Detail Employee</h1>
+<dt>ID</dt>
+@Html.DisplayFor(model => model.Id)
+<dt>Name</dt>
+@Html.DisplayFor(model => model.Name)
+<dt>Age</dt>
+@Html.DisplayFor(model => model.EmployeeCode)
+<dt>Country</dt>
+@Html.DisplayFor(model => model.Rank)
+<dt>Work</dt>
+@Html.DisplayFor(model => model.Department.Name)
+
+<div>
+    <a asp-action="Index">Home</a>
+</div>

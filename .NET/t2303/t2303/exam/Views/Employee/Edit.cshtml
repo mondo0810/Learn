@@ -1,0 +1,37 @@
+﻿@model exam.Models.Employee
+
+<h1 class="header-thumnail"> Edit Employee</h1>
+
+<h1>Edit</h1>
+<form asp-action="Edit">
+    <div class="form-group">
+        <label asp-for="Id"></label>
+        <div class="col-md-10">
+            <input asp-for="Id" class="form-control" readonly />
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="Name" class="control-label"></label>
+        <div class="col-md-10">
+            <input asp-for="Name" class="form-control" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="EmployeeCode" class="control-label"></label>
+        <div class="col-md-10">
+            <input asp-for="EmployeeCode" class="form-control" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="Rank" class="control-label"></label>
+        <div class="col-md-10">
+            <input asp-for="Rank" class="form-control" />
+        </div>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Save" class="btn btn-success" />
+    </div>
+</form>
+<button class="btn btn-primary">
+    <a style="color: white" asp-action="Index">Back to List</a>
+</button>

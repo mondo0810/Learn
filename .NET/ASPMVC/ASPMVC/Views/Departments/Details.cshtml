@@ -1,0 +1,46 @@
+﻿@model ASPMVC.Models.Department
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="container mt-4">
+    <h1 class="text-primary">Department Details</h1>
+    <div class="card mt-4">
+        <div class="card-header">
+            <h4>Department Information</h4>
+        </div>
+        <div class="card-body">
+            <dl class="row">
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.DepartmentName)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.DepartmentName)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.DepartmentCode)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.DepartmentCode)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.Location)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.Location)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.NumberOfPersonals)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.NumberOfPersonals)
+                </dd>
+            </dl>
+        </div>
+        <div class="card-footer">
+            <a asp-action="Edit" asp-route-id="@Model?.DepartmentId" class="btn btn-primary">Edit</a>
+            <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+        </div>
+    </div>
+</div>

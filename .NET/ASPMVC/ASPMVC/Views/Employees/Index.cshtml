@@ -1,0 +1,59 @@
+﻿@model IEnumerable<ASPMVC.Models.Employee>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="my-4">@ViewData["Title"]</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New</a>
+</p>
+
+<table class="table table-striped table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.EmployeeName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmployeeCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Department.DepartmentCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rank)
+            </th>
+            <th>
+                Control
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmployeeName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmployeeCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Department.DepartmentCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rank)
+                </td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.EmployeeId" class="btn btn-sm btn-info">Statistics</a>
+                    <a asp-action="Edit" asp-route-id="@item.EmployeeId" class="btn btn-sm btn-warning">Edit</a>
+                    <a asp-action="Details" asp-route-id="@item.EmployeeId" class="btn btn-sm btn-info">Details</a>
+                    <a asp-action="Delete" asp-route-id="@item.EmployeeId" class="btn btn-sm btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
