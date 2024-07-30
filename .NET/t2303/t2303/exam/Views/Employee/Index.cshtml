@@ -1,0 +1,46 @@
+﻿@model IEnumerable<exam.Models.Employee> 
+
+<h1 class="header-thumnail">Employee Manager</h1>
+
+<button class="btn btn-primary">
+    <i style="color: white" class="fa-solid fa-plus"></i>
+    <a style="color: white" asp-action="Create">Create Employee</a>
+</button>
+
+<br />
+<table class="table">
+    <thead>
+        <th> Id</th>
+        <th> Name</th>
+        <th> Employee Code</th>
+        <th> Rank</th>
+        <th> Department</th>
+        <th> Tools</th>
+    </thead>
+    <tdata>
+        @foreach (var a in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => a.Id)</td>
+                <td>@Html.DisplayFor(modelItem => a.Name)</td>
+                <td>@Html.DisplayFor(modelItem => a.EmployeeCode)</td>
+                <td>@Html.DisplayFor(modelItem => a.Rank)</td>
+                <td>@Html.DisplayFor(modelItem => a.Department.Name)</td>
+                <td class="tool">
+                    <a asp-action="Edit" asp-route-id="@a.Id" style="color: green">
+                        <i class="fa-solid fa-pen-to-square"></i>Edit
+                    </a>
+                    <a asp-action="Details" asp-route-id="@a.Id" style="color: blue">
+                        <i class="fa-solid fa-eye"></i>Details
+                    </a>
+                    <a asp-action="Delete" asp-route-id="@a.Id" style="color: red">
+                        <i class="fa-solid fa-trash"></i>Delete
+                    </a>
+                </td>
+            </tr>
+        }
+
+    </tdata>
+</table>
+
+

@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ASPAPI.Models;
+using Microsoft.AspNetCore.Authorization;
+using System.Diagnostics;
 
 namespace ASPAPI.Controllers
 {
@@ -75,10 +77,21 @@ namespace ASPAPI.Controllers
         // POST: api/Products
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
+        [Authorize]
         public async Task<ActionResult<Product>> PostProduct(Product product)
         {
+
+            var userRoles = User.Claims
+           .Where(c => c.Type == System.Security.Claims.ClaimTypes.Role)
+           .Select(c => c.Value)
+           .ToList();
+
+            Debug.WriteLine("User Roles: " + string.Join(", ", userRoles));
+
+
             _context.Products.Add(product);
             await _context.SaveChangesAsync();
+            
 
             return CreatedAtAction("GetProduct", new { id = product.Id }, product);
         }

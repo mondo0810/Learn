@@ -1,0 +1,51 @@
+﻿@model exam.Models.Department
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1 class="header-thumnail">Edit</h1>
+
+<h4>Department</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div class="form-group">
+                <label asp-for="Id"></label>
+                <div class="col-md-10">
+                    <input asp-for="Id" class="form-control" readonly />
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Name" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="DepartmentCode" class="control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="DepartmentCode" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Location" class="control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Location" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<button class="btn btn-primary">
+    <a style="color: white" asp-action="Index">Back to List</a>
+</button>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

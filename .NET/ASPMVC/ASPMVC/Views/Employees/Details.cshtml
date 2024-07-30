@@ -1,42 +1,88 @@
 ﻿@model ASPMVC.Models.Employee
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Employee Details";
+    Layout = null;
 }
 
-<h1>Details</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - My Application</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            margin: 0;
+            color: #333;
+        }
+        .details {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 10px;
+        }
+        .details dt {
+            font-weight: bold;
+            color: #555;
+        }
+        .details dd {
+            margin: 0 0 10px 0;
+            color: #777;
+        }
+        .actions {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .actions a {
+            text-decoration: none;
+            color: #007bff;
+            margin: 0 10px;
+        }
+        .actions a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Employee Details</h1>
+        </div>
+        <div class="details">
+            <dt>@Html.DisplayNameFor(model => model.EmployeeName)</dt>
+            <dd>@Html.DisplayFor(model => model.EmployeeName)</dd>
 
-<div>
-    <h4>Employee</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.EmployeeName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.EmployeeName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.EmployeeCode)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.EmployeeCode)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Department)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Department.DepartmentCode)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Rank)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Rank)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.EmployeeId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+            <dt>@Html.DisplayNameFor(model => model.EmployeeCode)</dt>
+            <dd>@Html.DisplayFor(model => model.EmployeeCode)</dd>
+
+            <dt>@Html.DisplayNameFor(model => model.Department)</dt>
+            <dd>@Html.DisplayFor(model => model.Department.DepartmentCode)</dd>
+
+            <dt>@Html.DisplayNameFor(model => model.Rank)</dt>
+            <dd>@Html.DisplayFor(model => model.Rank)</dd>
+        </div>
+        <div class="actions">
+            <a asp-action="Edit" asp-route-id="@Model?.EmployeeId">Edit</a>
+            <a asp-action="Index">Back to List</a>
+        </div>
+    </div>
+</body>
+</html>
