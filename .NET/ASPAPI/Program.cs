@@ -1,5 +1,9 @@
-using ASPAPI;
+﻿using ASPAPI;
 using ASPAPI.Models;
+using ASPAPI.Repositories.Interfaces;
+using ASPAPI.Repositories;
+using ASPAPI.Services.Interfaces;
+using ASPAPI.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -16,11 +20,15 @@ builder.Services.AddControllers();
 builder.Services.AddDbContext<MyDatabaseContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+// Đăng ký các Repository và Service
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<IProductService, ProductService>();
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SwaggerDoc("v1", new() { Title = "Pappa�s API", Version = "v1" });
+    c.SwaggerDoc("v1", new() { Title = "Pappa´s API", Version = "v1" });
 
     // Define the OAuth2.0 scheme that's in use (i.e., Implicit Flow)
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
