@@ -1,0 +1,72 @@
+name: CI/CD
+
+on:
+  push:
+    branches:
+      - web1
+  pull_request:
+    branches:
+      - web1
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Install dependencies (backend)
+        run: |
+          cd server
+          dotnet restore
+
+      - name: Build and publish (backend)
+        run: |
+          cd server
+          dotnet build --configuration Release
+          dotnet publish --configuration Release --output ./publish
+
+      - name: Create or update web1.service
+        run: |
+          if [ ! -f /etc/systemd/system/dotnetapp.service ]; then
+            sudo bash -c 'cat > /etc/systemd/system/web1.service << EOF
+            [Unit]
+            Description=Your .NET App
+
+            [Service]
+            WorkingDirectory=/var/www/your_app
+            ExecStart=/usr/bin/dotnet /var/www/your_app/server/publish/web1.dll
+            Restart=always
+            RestartSec=10
+            SyslogIdentifier=dotnet-your_app
+            User=www-data
+            Environment=ASPNETCORE_ENVIRONMENT=Production
+
+            [Install]
+            WantedBy=multi-user.target
+            EOF'
+            sudo systemctl enable dotnetapp.service
+          fi
+          sudo systemctl daemon-reload
+
+      - name: Restart backend service
+        run: sudo systemctl restart dotnetapp.service
+
+      - name: Install dependencies (frontend)
+        run: |
+          cd client
+          npm install
+
+      - name: Build (frontend)
+        run: |
+          cd client
+          npm run build
+
+      - name: Start frontend with pm2
+        run: |
+          cd client
+          pm2 stop shopnicktoilet || true
+          pm2 delete shopnicktoilet || true
+          pm2 start npm --name "shopnicktoilet" -- start
+          pm2 save
