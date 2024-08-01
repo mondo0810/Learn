@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ReactAppNET.Server")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+abd225a827f6e75c25bfdb8d5af47e4825f18377")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+510da243bb65740de282c13fe0f1d463ace876f8")]
 [assembly: System.Reflection.AssemblyProductAttribute("ReactAppNET.Server")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ReactAppNET.Server")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

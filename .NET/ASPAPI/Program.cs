@@ -18,7 +18,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 
 builder.Services.AddDbContext<MyDatabaseContext>(options =>
-options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+options.UseMySQL(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // Đăng ký các Repository và Service
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
