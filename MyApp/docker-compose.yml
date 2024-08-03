@@ -1,0 +1,10 @@
+version: '3.8'
+services:
+  aspapi:
+    build: ./ASPAPI
+    ports:
+      - "5000:8080"
+  frontend:
+    build: ./frontend
+    ports:
+      - "3100:3000"

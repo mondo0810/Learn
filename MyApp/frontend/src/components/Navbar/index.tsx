@@ -48,7 +48,7 @@ export default function Navbar() {
               icon={<HiCurrencyDollar className="text-xl" />}
               href="/tai-khoan/giao-dich/nap-the"
             />
-            <LinkBtn title="NẠP ATM/MOMO NÈ Ba" icon={<HiCreditCard className="text-xl" />} href="/" />
+            <LinkBtn title="NẠP ATM/MOMO nè ba" icon={<HiCreditCard className="text-xl" />} href="/" />
           </div>
         </div>
 
