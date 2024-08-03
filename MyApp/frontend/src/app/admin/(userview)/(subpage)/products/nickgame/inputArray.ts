@@ -1,0 +1,90 @@
+import axios from "@/services/axios";
+
+export async function getInputArray(): Promise<IInputObj[]> {
+  return [
+    {
+      comp: "TextInput",
+      label: "Tên ingame *",
+      name: "ingame",
+      type: "text",
+      placeholder: "Nhập ingame...",
+      isRequired: true,
+    },
+    {
+      comp: "TextInput",
+      label: "Mật khẩu *",
+      name: "password",
+      type: "text",
+      placeholder: "Nhập mật khẩu đăng nhập...",
+      isRequired: true,
+    },
+    {
+      comp: "TextInput",
+      label: "Giá tiền *",
+      name: "price",
+      type: "number",
+      placeholder: "Nhập giá bán...",
+      isRequired: true,
+    },
+    {
+      comp: "FileInput",
+      label: "Ảnh minh họa",
+      name: "thumb_img",
+      isMultiple: false,
+      isRequired: false,
+    },
+    {
+      comp: "FileInput",
+      label: "DS ảnh mô tả",
+      name: "detail_imgs",
+      isMultiple: true,
+      isRequired: false,
+    },
+    {
+      comp: "TextInput",
+      label: "Số tướng",
+      name: "champs_count",
+      type: "number",
+      placeholder: "Nhập số tướng có...",
+      isRequired: false,
+    },
+    {
+      comp: "TextInput",
+      label: "Số skin",
+      name: "skins_count",
+      type: "number",
+      placeholder: "Nhập số skin có...",
+      isRequired: false,
+    },
+    {
+      comp: "TextInput",
+      label: "Xếp hạng",
+      name: "rank",
+      type: "text",
+      placeholder: "Nhập xếp hạng cao nhất...",
+      isRequired: false,
+    },
+    {
+      comp: "TextInput",
+      label: "Trạng thái",
+      name: "status",
+      type: "text",
+      placeholder: "VD: SĐT đổi...",
+      isRequired: false,
+    },
+    {
+      comp: "Select",
+      label: "Game *",
+      name: "game",
+      isRequired: true,
+      options: ["Liên Quân Mobile", "Tốc Chiến", "Free Fire", "Tài khoản ROBUX", "Liên Minh Huyền Thoại"],
+    },
+    {
+      comp: "Select",
+      label: "Danh mục tài khoản",
+      name: "category_id",
+      isRequired: true,
+      options: (await axios.get("/nickgame-category/public/title?type=normal")).data.data,
+    },
+  ];
+}

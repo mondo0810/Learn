@@ -1,0 +1,72 @@
+[
+  {
+    "title": "Tài khoản",
+    "links": [
+      {
+        "title": "Trang quản trị",
+        "href": "/admin",
+        "role": 2
+      },
+      {
+        "title": "Thông tin chung",
+        "href": "/tai-khoan/ho-so"
+      },
+      {
+        "title": "Đổi mật khẩu",
+        "href": "/tai-khoan/doi-mat-khau"
+      }
+    ]
+  },
+  {
+    "title": "Nạp tiền",
+    "links": [
+      {
+        "title": "Nạp thẻ tự động",
+        "href": "/tai-khoan/giao-dich/nap-the",
+        "new": true
+      },
+      {
+        "title": "Nạp ATM/MOMO",
+        "href": "/"
+      }
+    ]
+  },
+  {
+    "title": "Lịch sử",
+    "links": [
+      {
+        "title": "Lịch sử chơi game",
+        "href": "/tai-khoan/lich-su/tro-choi"
+      },
+      {
+        "title": "Lịch sử nạp thẻ",
+        "href": "/tai-khoan/lich-su/nap-the"
+      },
+      {
+        "title": "Lịch sử giao dịch",
+        "href": "/tai-khoan/lich-su/giao-dich"
+      },
+      {
+        "title": "Lịch sử mua nick",
+        "href": "/tai-khoan/lich-su/nickgame"
+      },
+      {
+        "title": "Lịch sử nhận v.phẩm",
+        "href": "/tai-khoan/lich-su/vat-pham"
+      }
+    ]
+  },
+  {
+    "title": "Khác",
+    "links": [
+      {
+        "title": "Voucher",
+        "href": "/tai-khoan/ma-giam-gia"
+      },
+      {
+        "title": "Rút vật phẩm",
+        "href": "/tai-khoan/tro-choi/rut-vat-pham"
+      }
+    ]
+  }
+]

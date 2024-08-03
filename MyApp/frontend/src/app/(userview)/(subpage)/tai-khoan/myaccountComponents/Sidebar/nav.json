@@ -1,0 +1,80 @@
+[
+    {
+        "title": "Tài khoản",
+        "links": [
+            {
+                "title": "Thông tin chung",
+                "href": "/tai-khoan/ho-so"
+            },
+            {
+                "title": "Đổi mật khẩu",
+                "href": "/tai-khoan/doi-mat-khau"
+            }
+        ]
+    },
+    {
+        "title": "Thông báo",
+        "links": [
+            {
+                "title": "Tất cả thông báo",
+                "href": "/tai-khoan/thong-bao"
+            }
+        ]
+    },
+    {
+        "title": "Trò chơi",
+        "links": [
+            {
+                "title": "Rút vật phẩm",
+                "href": "/tai-khoan/tro-choi/rut-vat-pham"
+            }
+        ]
+    },
+    {
+        "title": "Giao dịch",
+        "links": [
+            {
+                "title": "Nạp thẻ cào tự động",
+                "href": "/tai-khoan/giao-dich/nap-the"
+            },
+            {
+                "title": "Nạp qua ATM/MOMO",
+                "href": "/"
+            }
+        ]
+    },
+    {
+        "title": "Voucher",
+        "links": [
+            {
+                "title": "Danh sách voucher",
+                "href": "/tai-khoan/ma-giam-gia"
+            }
+        ]
+    },
+    {
+        "title": "Lịch sử",
+        "links": [
+            {
+                "title": "Lịch sử chơi game",
+                "href": "/tai-khoan/lich-su/tro-choi"
+            },
+            {
+                "title": "Lịch sử nạp thẻ",
+                "href": "/tai-khoan/lich-su/nap-the"
+            },
+            {
+                "title": "Lịch sử giao dịch",
+                "href": "/tai-khoan/lich-su/giao-dich"
+            },
+            {
+                "title": "Lịch sử mua nick",
+                "href": "/tai-khoan/lich-su/nickgame"
+            },
+            {
+                "title": "Lịch sử nhận vật phẩm",
+                "href": "/tai-khoan/lich-su/vat-pham"
+            }
+        ]
+    }
+]

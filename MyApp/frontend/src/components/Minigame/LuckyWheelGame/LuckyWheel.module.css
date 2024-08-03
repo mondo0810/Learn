@@ -1,0 +1,13 @@
+.wheel {
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    transition: transform 3s ease-out;
+}
+
+.spinning {
+    pointer-events: none;
+}

@@ -1,0 +1,71 @@
+export function getInputArray(): IInputObj[] {
+    return [
+        {
+            comp: "TextInput",
+            label: "Tên vòng quay *",
+            name: "name",
+            type: "text",
+            placeholder: "Nhập tên hợp lệ...",
+            isRequired: true,
+        },
+        {
+            comp: "FileInput",
+            label: "Ảnh vòng quay *",
+            helperText: "* Ảnh cần khớp với phần thưởng vòng quay. Mỗi phần thưởng thêm theo chiều kim đồng hồ",
+            name: "wheel_img",
+            isMultiple: false,
+            isRequired: true,
+        },
+        {
+            comp: "FileInput",
+            label: "Ảnh minh họa",
+            name: "thumb_img",
+            isMultiple: false,
+            isRequired: false,
+        },
+        {
+            comp: "TextInput",
+            label: "Mô tả vòng quay",
+            name: "description",
+            type: "text",
+            placeholder: "Nhập mô tả hợp lệ...",
+            isRequired: false,
+        },
+        {
+            comp: "TextInput",
+            label: "Giá 1 lượt quay *",
+            name: "price1",
+            type: "number",
+            helperText: "",
+            placeholder: "V.D: 10000 đ",
+            isRequired: true,
+        },
+        {
+            comp: "TextInput",
+            label: "Giá 3 lượt quay",
+            name: "price3",
+            type: "number",
+            helperText: "* Bỏ trống sẽ không thêm vào",
+            placeholder: "V.D: 28000 đ",
+            isRequired: false,
+        },
+        {
+            comp: "TextInput",
+            label: "Giá 5 lượt quay",
+            name: "price5",
+            type: "number",
+            helperText: "* Bỏ trống sẽ không thêm vào",
+            placeholder: "V.D: 44000 đ",
+            isRequired: false,
+        },
+        {
+            comp: "TextInput",
+            label: "Giá 10 lượt quay",
+            name: "price10",
+            type: "number",
+            helperText: "* Bỏ trống sẽ không thêm vào",
+            placeholder: "V.D: 90000 đ",
+            isRequired: false,
+        }
+    ];
+}
