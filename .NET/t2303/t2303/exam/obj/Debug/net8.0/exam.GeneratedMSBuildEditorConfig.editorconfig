@@ -17,79 +17,79 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = exam
 build_property.RootNamespace = exam
-build_property.ProjectDir = E:\IT_THIBLUE\Learn\.NET\t2303\t2303\exam\
+build_property.ProjectDir = e:\IT_THIBLUE\Learn\.NET\t2303\t2303\exam\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = E:\IT_THIBLUE\Learn\.NET\t2303\t2303\exam
+build_property.MSBuildProjectDirectory = e:\IT_THIBLUE\Learn\.NET\t2303\t2303\exam
 build_property._RazorSourceGeneratorDebug = 
 
-[E:/IT_THIBLUE/Learn/.NET/t2303/t2303/exam/Views/Department/Create.cshtml]
+[e:/IT_THIBLUE/Learn/.NET/t2303/t2303/exam/Views/Department/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwYXJ0bWVudFxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/IT_THIBLUE/Learn/.NET/t2303/t2303/exam/Views/Department/Delete.cshtml]
+[e:/IT_THIBLUE/Learn/.NET/t2303/t2303/exam/Views/Department/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwYXJ0bWVudFxEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/IT_THIBLUE/Learn/.NET/t2303/t2303/exam/Views/Department/Details.cshtml]
+[e:/IT_THIBLUE/Learn/.NET/t2303/t2303/exam/Views/Department/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwYXJ0bWVudFxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/IT_THIBLUE/Learn/.NET/t2303/t2303/exam/Views/Department/Edit.cshtml]
+[e:/IT_THIBLUE/Learn/.NET/t2303/t2303/exam/Views/Department/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwYXJ0bWVudFxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/IT_THIBLUE/Learn/.NET/t2303/t2303/exam/Views/Department/Index.cshtml]
+[e:/IT_THIBLUE/Learn/.NET/t2303/t2303/exam/Views/Department/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwYXJ0bWVudFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/IT_THIBLUE/Learn/.NET/t2303/t2303/exam/Views/Employee/Create.cshtml]
+[e:/IT_THIBLUE/Learn/.NET/t2303/t2303/exam/Views/Employee/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/IT_THIBLUE/Learn/.NET/t2303/t2303/exam/Views/Employee/Delete.cshtml]
+[e:/IT_THIBLUE/Learn/.NET/t2303/t2303/exam/Views/Employee/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/IT_THIBLUE/Learn/.NET/t2303/t2303/exam/Views/Employee/Details.cshtml]
+[e:/IT_THIBLUE/Learn/.NET/t2303/t2303/exam/Views/Employee/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/IT_THIBLUE/Learn/.NET/t2303/t2303/exam/Views/Employee/Edit.cshtml]
+[e:/IT_THIBLUE/Learn/.NET/t2303/t2303/exam/Views/Employee/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/IT_THIBLUE/Learn/.NET/t2303/t2303/exam/Views/Employee/Index.cshtml]
+[e:/IT_THIBLUE/Learn/.NET/t2303/t2303/exam/Views/Employee/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/IT_THIBLUE/Learn/.NET/t2303/t2303/exam/Views/Home/Index.cshtml]
+[e:/IT_THIBLUE/Learn/.NET/t2303/t2303/exam/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/IT_THIBLUE/Learn/.NET/t2303/t2303/exam/Views/Home/Privacy.cshtml]
+[e:/IT_THIBLUE/Learn/.NET/t2303/t2303/exam/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/IT_THIBLUE/Learn/.NET/t2303/t2303/exam/Views/Shared/Error.cshtml]
+[e:/IT_THIBLUE/Learn/.NET/t2303/t2303/exam/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/IT_THIBLUE/Learn/.NET/t2303/t2303/exam/Views/Shared/_ValidationScriptsPartial.cshtml]
+[e:/IT_THIBLUE/Learn/.NET/t2303/t2303/exam/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/IT_THIBLUE/Learn/.NET/t2303/t2303/exam/Views/_ViewImports.cshtml]
+[e:/IT_THIBLUE/Learn/.NET/t2303/t2303/exam/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/IT_THIBLUE/Learn/.NET/t2303/t2303/exam/Views/_ViewStart.cshtml]
+[e:/IT_THIBLUE/Learn/.NET/t2303/t2303/exam/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/IT_THIBLUE/Learn/.NET/t2303/t2303/exam/Views/Shared/_Layout.cshtml]
+[e:/IT_THIBLUE/Learn/.NET/t2303/t2303/exam/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-2bki9unil1
