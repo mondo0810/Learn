@@ -10,7 +10,7 @@ on:
 
 jobs:
   docker-compose-up:
-    runs-on: ubuntu-latest  # Choose an appropriate runner
+    runs-on: shopbanhang1  # Choose an appropriate runner
 
     steps:
     - name: Checkout Repository
