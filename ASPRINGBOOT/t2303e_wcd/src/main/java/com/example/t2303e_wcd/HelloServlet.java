@@ -15,7 +15,7 @@ public class HelloServlet extends HttpServlet {
     private static final Logger logger = Logger.getLogger(HelloServlet.class.getName());
 
     public void hehhe() {
-        message = "Hello World! Bro tuổi gì ba";
+        message = "Hello Worlddsnsd!";
         logger.info("Servlet initialized with message: " + message);
     }
 
