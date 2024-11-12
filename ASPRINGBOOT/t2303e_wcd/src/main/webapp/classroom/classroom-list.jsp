@@ -35,7 +35,7 @@
                 <td><%= c.getTeacherName() %></td>
                 <td>
                     <!-- Edit and Delete links -->
-                    <a href="classroom-form.jsp?id=<%= c.getId() %>&name=<%= c.getName() %>&teacherName=<%= c.getTeacherName() %>" class="btn btn-warning btn-sm">Edit</a>
+                    <a href="classroom/classroom-form.jsp?id=<%= c.getId() %>&name=<%= c.getName() %>&teacherName=<%= c.getTeacherName() %>" class="btn btn-warning btn-sm">Edit</a>
                     <a href="?delete=<%= c.getId() %>" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this classroom?');">Delete</a>
                 </td>
             </tr>

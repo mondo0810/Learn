@@ -13,6 +13,7 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Table(name = "students")
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,10 +23,17 @@ public class Student {
     private String address;
     private String phone;
     private LocalDateTime createdAt;
-    private Integer classRoomId;
-    //    @ManyToOne
-//    private ClassRoom classRoom;
-    @ManyToMany
+
+    @ManyToOne
+    @JoinColumn(name = "class_id", referencedColumnName = "id")
+    private ClassRoom classRoom;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "student_subject",
+            joinColumns = @JoinColumn(name = "student_id"),
+            inverseJoinColumns = @JoinColumn(name = "subject_id")
+    )
     private Set<Subject> subjects = new HashSet<>();
 }
 

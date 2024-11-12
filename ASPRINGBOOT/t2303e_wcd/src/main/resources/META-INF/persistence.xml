@@ -4,7 +4,7 @@
         <class>com.example.t2303e_wcd.model</class>
         <properties>
             <!-- Cấu hình kết nối CSDL -->
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3308/lab1"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3308/lab2"/>
             <property name="javax.persistence.jdbc.user" value="root"/>
             <property name="javax.persistence.jdbc.password" value="123456"/>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>

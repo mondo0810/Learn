@@ -21,6 +21,7 @@
             <th scope="col">Email</th>
             <th scope="col">Address</th>
             <th scope="col">Telephone</th>
+              <th scope="col">ClassRoom</th>
             <th scope="col">Actions</th>
         </tr>
         </thead>

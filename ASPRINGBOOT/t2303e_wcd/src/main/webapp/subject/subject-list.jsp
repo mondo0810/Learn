@@ -38,7 +38,7 @@
                 <td>
                     <a href="/subject/subject-form.jsp?id=<%= s.getId() %>&name=<%= s.getName() %>&credits=<%= s.getCredits() %>"
                        class="btn btn-warning btn-sm">Edit</a>
-                    <a href="subject?action=delete&id=<%= s.getId() %>" class="btn btn-danger btn-sm">Delete</a>
+                    <a href="subject?delete=<%= s.getId() %>" class="btn btn-danger btn-sm">Delete</a>
                 </td>
             </tr>
             <% } %>

@@ -12,12 +12,13 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Table(name = "subjects")
 public class Subject {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
     private int credits;
-    @ManyToMany()
+    @ManyToMany(mappedBy = "subjects")
     private Set<Student> students = new HashSet<>();
 }
