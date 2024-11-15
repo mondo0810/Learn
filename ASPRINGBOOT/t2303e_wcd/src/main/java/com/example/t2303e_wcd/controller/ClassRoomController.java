@@ -46,13 +46,8 @@ public class ClassRoomController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String idParam = request.getParameter("id");
-        String name = request.getParameter("name");
-        String teacherName = request.getParameter("teacherName");
-
         int id = idParam != null && !idParam.isEmpty() ? Integer.parseInt(idParam) : 0;
-
-        ClassRoom classRoom = new ClassRoom(id, name, teacherName, null);
-
+        ClassRoom classRoom = new ClassRoom(id, request.getParameter("name"), request.getParameter("teacherName"), null);
         try {
             classRoomRepository.save(classRoom);
             response.sendRedirect("/classroom");
