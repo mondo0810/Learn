@@ -1,7 +1,7 @@
 package com.example.t2303e_wcd.controller;
 
 import com.example.t2303e_wcd.DTO.StudentResponse;
-import com.example.t2303e_wcd.repository.StudentRepository;
+import com.example.t2303e_wcd.service.StudentService;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -11,11 +11,11 @@ import java.util.List;
 
 @WebServlet("")
 public class StudentController extends HttpServlet {
-    private StudentRepository studentRepository;
+    private StudentService studentService;
 
     @Override
     public void init() {
-        studentRepository = new StudentRepository();
+        studentService = new StudentService();
     }
 
     @Override
@@ -24,14 +24,14 @@ public class StudentController extends HttpServlet {
         String searchParams = request.getParameter("search");
         if (deleteId != null) {
             try {
-                studentRepository.delete(Integer.parseInt(deleteId));
+                studentService.delete(Integer.parseInt(deleteId));
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
 
         try {
-            List<StudentResponse> students = studentRepository.findAll(searchParams);
+            List<StudentResponse> students = studentService.findAll(searchParams);
             System.out.println(students);
             request.setAttribute("students", students);
             request.getRequestDispatcher("index.jsp").forward(request, response);

@@ -3,16 +3,15 @@ package com.example.t2303e_wcd.repository;
 import com.example.t2303e_wcd.DTO.StudentResponse;
 import com.example.t2303e_wcd.HibernateUtil;
 import com.example.t2303e_wcd.model.Student;
-import com.example.t2303e_wcd.model.Subject;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import java.util.List;
-import java.util.Set;
 import java.util.stream.Collectors;
 
-public class StudentRepository {
+public class StudentRepository implements IStudentRepository {
 
+    @Override
     public List<StudentResponse> findAll(String searchParams) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             String hql = "FROM Student";
@@ -31,25 +30,21 @@ public class StudentRepository {
     }
 
     private StudentResponse convertToResponse(Student student) {
-        StudentResponse response = new StudentResponse();
-        response.setId(student.getId());
-        response.setName(student.getName());
-        response.setEmail(student.getEmail());
-        response.setAddress(student.getAddress());
-        response.setPhone(student.getPhone());
-        response.setCreatedAt(student.getCreatedAt());
-
-        if (student.getClassRoom() != null) {
-            response.setClassRoomName(student.getClassRoom().getName());
-            response.setClassRoomId(student.getClassRoom().getId());
-        }
-
-        Set<Subject> subjects = student.getSubjects();
-        response.setSubjects(subjects);
-
+        StudentResponse response = new StudentResponse(
+                student.getId(),
+                student.getName(),
+                student.getEmail(),
+                student.getAddress(),
+                student.getPhone(),
+                student.getCreatedAt(),
+                student.getClassRoom() != null ? student.getClassRoom().getName() : null,
+                student.getClassRoom() != null ? student.getClassRoom().getId() : null,
+                student.getSubjects()
+        );
         return response;
     }
 
+    @Override
     public boolean save(Student student) {
         Transaction transaction = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
@@ -64,6 +59,7 @@ public class StudentRepository {
         }
     }
 
+    @Override
     public boolean delete(int id) {
         Transaction transaction = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {

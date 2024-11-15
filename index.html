@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bitcoin Price</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f4f4f4;
+      }
+      .container {
+        text-align: center;
+      }
+      h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+      .price {
+        font-size: 2rem;
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Bitcoin Price (BTC/USDT)</h1>
+      <div class="price" id="btcPrice">Loading...</div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/socket.io-client@4.7.1/dist/socket.io.min.js"></script>
+    <script>
+      // Connect to the Binance WebSocket API
+      const socket = io("wss://stream.binance.com/stream", {
+        transports: ["websocket"],
+        query: {
+          stream: "!miniTicker@arr@3000ms",
+        },
+      });
+
+      // Listen for updates on the BTC/USDT pair
+      socket.on("message", (data) => {
+        const message = JSON.parse(data);
+        if (message && message.data) {
+          // Loop through the data array to find the BTC/USDT stream
+          message.data.forEach((ticker) => {
+            if (ticker.s === "BTCUSDT") {
+              const btcPrice = ticker.c; // Current price of BTC/USDT
+              document.getElementById("btcPrice").innerText = `$${parseFloat(
+                btcPrice
+              ).toFixed(2)}`;
+            }
+          });
+        }
+      });
+
+      // Handle socket connection error
+      socket.on("connect_error", (error) => {
+        console.error("Socket connection error:", error);
+      });
+    </script>
+  </body>
+</html>
