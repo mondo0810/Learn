@@ -19,6 +19,8 @@
         <property name="hbm2ddl.auto">update</property>
         <mapping class="com.example.t2303e_wcd.model.Student"/>
         <mapping class="com.example.t2303e_wcd.model.ClassRoom"/>
+        <mapping class="com.example.t2303e_wcd.model.Category"/>
+        <mapping class="com.example.t2303e_wcd.model.Product"/>
         <mapping class="com.example.t2303e_wcd.model.Subject"/>
     </session-factory>
 </hibernate-configuration>

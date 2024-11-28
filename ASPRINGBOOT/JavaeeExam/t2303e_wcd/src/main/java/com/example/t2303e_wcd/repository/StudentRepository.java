@@ -25,24 +25,24 @@ public class StudentRepository implements IStudentRepository {
                 students = session.createQuery(hql, Student.class).getResultList();
             }
 
-            return students.stream().map(this::convertToResponse).collect(Collectors.toList());
+            return students.stream().map(this::toStudentRes).collect(Collectors.toList());
         }
     }
 
-    private StudentResponse convertToResponse(Student student) {
-        StudentResponse response = new StudentResponse(
-                student.getId(),
-                student.getName(),
-                student.getEmail(),
-                student.getAddress(),
-                student.getPhone(),
-                student.getCreatedAt(),
-                student.getClassRoom() != null ? student.getClassRoom().getName() : null,
-                student.getClassRoom() != null ? student.getClassRoom().getId() : null,
-                student.getSubjects()
-        );
-        return response;
+    private StudentResponse toStudentRes(Student student) {
+        return StudentResponse.builder()
+                .id(student.getId())
+                .name(student.getName())
+                .email(student.getEmail())
+                .address(student.getAddress())
+                .phone(student.getPhone())
+                .createdAt(student.getCreatedAt())
+                .classRoomName(student.getClassRoom() != null ? student.getClassRoom().getName() : null)
+                .classRoomId(student.getClassRoom() != null ? student.getClassRoom().getId() : null)
+                .subjects(student.getSubjects())
+                .build();
     }
+
 
     @Override
     public boolean save(Student student) {
