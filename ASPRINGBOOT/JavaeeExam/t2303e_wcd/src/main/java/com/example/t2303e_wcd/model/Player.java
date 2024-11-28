@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -27,7 +28,12 @@ public class Player {
     @Column(name = "age", nullable = false, length = 10)
     private String age;
 
-    // Many Players can reference one Indexer
+    // One player can have multiple player_index associations
+    @OneToMany(mappedBy = "player", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    private List<PlayerIndexer> playerIndexers;
+
+
+    // Many Players can reference one Indexer (Many-to-One relationship)
     @ManyToOne
     @JoinColumn(name = "index_id", nullable = false)
     private Indexer indexer;

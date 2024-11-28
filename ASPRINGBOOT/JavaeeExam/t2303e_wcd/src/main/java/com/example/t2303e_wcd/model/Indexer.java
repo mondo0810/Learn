@@ -28,7 +28,9 @@ public class Indexer {
     @Column(name = "valueMax", nullable = false)
     private float valueMax;
 
-    // Bidirectional relationship: One Indexer can have many Players
     @OneToMany(mappedBy = "indexer", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Player> players;
+    // One indexer can have multiple player_index associations
+    @OneToMany(mappedBy = "indexer", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<PlayerIndexer> playerIndexers;  // Relationships with Players via PlayerIndexer
 }
