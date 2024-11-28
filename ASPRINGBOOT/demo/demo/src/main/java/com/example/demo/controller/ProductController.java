@@ -6,6 +6,7 @@ import com.example.demo.dto.response.ProductRes;
 import com.example.demo.entity.Product;
 import com.example.demo.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -34,9 +35,20 @@ public class ProductController {
     }
 
     @GetMapping
-    public ResponseEntity<List<ProductRes>> getAllProducts() {
-        List<ProductRes> products = productService.getAllProducts();
-        return new ResponseEntity<>(products, HttpStatus.OK);
+    public ResponseEntity<Page<ProductRes>> searchFilterAndSortProducts(
+            @RequestParam(value = "keyword", required = false) String keyword,
+            @RequestParam(value = "minPrice", required = false) Double minPrice,
+            @RequestParam(value = "maxPrice", required = false) Double maxPrice,
+            @RequestParam(value = "minQuantity", required = false) Integer minQuantity,
+            @RequestParam(value = "page", defaultValue = "0") int page,
+            @RequestParam(value = "size", defaultValue = "10") int size,
+            @RequestParam(value = "sortBy", defaultValue = "name") String sortBy,
+            @RequestParam(value = "sortDir", defaultValue = "asc") String sortDir
+    ) {
+        Page<ProductRes> products = productService.searchFilterAndSortProducts(
+                keyword, minPrice, maxPrice, minQuantity, page, size, sortBy, sortDir
+        );
+        return ResponseEntity.ok(products);
     }
 
     @GetMapping("/{id}")

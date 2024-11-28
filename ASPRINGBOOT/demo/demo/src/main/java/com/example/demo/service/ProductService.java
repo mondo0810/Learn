@@ -4,10 +4,12 @@ import com.example.demo.dto.response.ProductRes;
 import com.example.demo.entity.Product;
 import com.example.demo.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -16,24 +18,35 @@ public class ProductService {
     @Autowired
     private ProductRepository productRepository;
 
-    public Product createProduct(Product product) {
-        return productRepository.save(product);
-    }
+    public Page<ProductRes> searchFilterAndSortProducts(
+            String keyword,
+            Double minPrice,
+            Double maxPrice,
+            Integer minQuantity,
+            int page,
+            int size,
+            String sortBy,
+            String sortDir
+    ) {
+        Sort sort = sortDir.equalsIgnoreCase("asc") ? Sort.by(sortBy).ascending() : Sort.by(sortBy).descending();
+        Pageable pageable = PageRequest.of(page, size, sort);
 
-    public List<ProductRes> getAllProducts() {
-        List<Product> products = productRepository.findAll();
-        List<ProductRes> productResList = new ArrayList<>();
+        Page<Product> productPage = productRepository.searchFilterAndSortProducts(keyword, minPrice, maxPrice, minQuantity, pageable);
 
-        for (Product product : products) {
+        return productPage.map(product -> {
             ProductRes productRes = new ProductRes();
             productRes.setId(product.getId());
             productRes.setName(product.getName());
             productRes.setPrice(product.getPrice());
             productRes.setQuantity(product.getQuantity());
             productRes.setStatus(product.getQuantity() > 0 ? "Còn Hàng" : "Hết Hàng");
-            productResList.add(productRes);
-        }
-        return productResList;
+            return productRes;
+        });
+    }
+
+
+    public Product createProduct(Product product) {
+        return productRepository.save(product);
     }
 
 
