@@ -31,7 +31,7 @@ public class OrderController {
     @GetMapping("/{orderId}")
     public ResponseEntity<OrderDTO> getOrderById(@PathVariable Long orderId) {
         OrderDTO orderDTO = orderService.getOrderById(orderId);
-        return ResponseEntity.ok(orderDTO); // Trả về HTTP 200 với dữ liệu OrderDTO
+        return ResponseEntity.ok(orderDTO); // Trả về HTTP 200 với dữ liệu OrderDTOdfdf
     }
 
     @PutMapping("/{orderId}/status")

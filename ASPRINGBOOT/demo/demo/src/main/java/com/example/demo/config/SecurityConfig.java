@@ -26,7 +26,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/auth/**").permitAll()
                         .requestMatchers("/api/auth/profile").authenticated()
-                        .requestMatchers("/api/products/**").hasAuthority("admin") // Kiểm tra quyền với ROLE_admin
+//                        .requestMatchers("/api/products/**").hasAuthority("admin") // Kiểm tra quyền với ROLE_admin
                         .anyRequest().permitAll()
                 )
                 .addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class); // Đảm bảo JWT filter chạy trước filter mặc định của Spring Security
