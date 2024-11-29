@@ -1,6 +1,7 @@
 package com.example.t2303e_wcd.model;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -11,6 +12,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Entity
 @Table(name = "player_index")
+@Builder
 public class PlayerIndexer {
 
     @Id

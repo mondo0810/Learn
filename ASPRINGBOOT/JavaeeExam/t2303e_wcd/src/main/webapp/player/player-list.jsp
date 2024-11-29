@@ -5,7 +5,7 @@
 
 <div class="container">
     <h1>Player List</h1>
-
+<jsp:include page="./player-form.jsp" />
     <!-- Add New Player Button -->
     <a href="/player-form" class="btn btn-primary mb-3">Add New Player</a>
 
@@ -48,7 +48,7 @@
                 <td><%= value %></td>
                 <td>
                     <!-- Edit and Delete Buttons -->
-                    <a href="/player-form?id=<%= player.getPlayerId() %>&name=<%= player.getName() %>&fullName=<%= player.getFullName() %>&age=<%= player.getAge() %>"
+                    <a href="/player-form?id=<%= player.getPlayerId() %>&name=<%= player.getName() %>&fullName=<%= player.getFullName() %>&age=<%= player.getAge() %>&value=<%= value %>"
                        class="btn btn-warning btn-sm">Edit</a>
                     <a href="/player?delete=<%= player.getPlayerId() %>" class="btn btn-danger btn-sm">Delete</a>
                 </td>

@@ -46,44 +46,70 @@ public class PlayerController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String idParam = request.getParameter("id");
-        String name = request.getParameter("name");
-        String fullName = request.getParameter("fullName");
-        String age = request.getParameter("age");
-
-        // Getting the indexerId and value from the form
-        String indexerIdParam = request.getParameter("indexerId");
-        String valueParam = request.getParameter("value");
-
-        int id = idParam != null && !idParam.isEmpty() ? Integer.parseInt(idParam) : 0;
-        int indexerId = indexerIdParam != null ? Integer.parseInt(indexerIdParam) : 0;
-        float value = valueParam != null ? Float.parseFloat(valueParam) : 0;
-
-        // Retrieve the Indexer object from the database using the indexerId
-        Indexer indexer = indexerRepository.findById(indexerId);
-
-        // Fetch the PlayerIndexer list associated with the given indexerId
-        List<PlayerIndexer> playerIndexers = playerIndexerRepository.findByIndexId(indexer.getIndexId());
-
-        // If there are any playerIndexers, set the value
-        if (!playerIndexers.isEmpty()) {
-            PlayerIndexer playerIndexer = playerIndexers.get(0); // Get the first match
-            playerIndexer.setValue(value); // Set the value for the PlayerIndexer
-            System.out.println("Updating PlayerIndexer with value: " + value); // Debugging line
-            playerIndexerRepository.save(playerIndexer); // Save the PlayerIndexer
-        }
-
-        // Create a Player object and associate the updated playerIndexers with it
-        Player player = new Player(id, name, fullName, age, playerIndexers, indexer);
-
         try {
-            playerRepository.save(player); // Save the player (and associated PlayerIndexer)
-            System.out.println("Saving Player with ID: " + player.getPlayerId()); // Debugging line
+            // Retrieve and validate form data
+            String idParam = request.getParameter("id");
+            String name = request.getParameter("name");
+            String fullName = request.getParameter("fullName");
+            String age = request.getParameter("age");
+            String indexerIdParam = request.getParameter("indexerId");
+            String valueParam = request.getParameter("value");
+
+            if (indexerIdParam == null || indexerIdParam.isEmpty()) {
+                response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Indexer ID is required.");
+                return;
+            }
+
+            int id = idParam != null && !idParam.isEmpty() ? Integer.parseInt(idParam) : 0;
+            int indexerId = Integer.parseInt(indexerIdParam);
+            float value = valueParam != null ? Float.parseFloat(valueParam) : 0;
+
+            // Fetch Indexer from the database
+            Indexer indexer = indexerRepository.findById(indexerId);
+            if (indexer == null) {
+                response.sendError(HttpServletResponse.SC_NOT_FOUND, "Indexer not found.");
+                return;
+            }
+
+            // Fetch Player if exists, or create new one
+            Player player = id > 0 ? playerRepository.findById(id) : null;
+            if (player != null) {
+                // Update existing Player
+                player.setName(name);
+                player.setFullName(fullName);
+                player.setAge(age);
+                player.setIndexer(indexer);
+            } else {
+                // Create new Player
+                player = new Player(id, name, fullName, age, null, indexer);
+            }
+            playerRepository.save(player);
+
+            // Check if PlayerIndexer exists
+            PlayerIndexer playerIndexer = playerIndexerRepository.findByPlayerAndIndexer(player, indexer);
+            if (playerIndexer != null) {
+                // Update existing PlayerIndexer
+                playerIndexer.setValue(value);
+            } else {
+                // Create new PlayerIndexer
+                playerIndexer = PlayerIndexer.builder()
+                        .player(player)
+                        .indexer(indexer)
+                        .value(value)
+                        .build();
+            }
+            playerIndexerRepository.save(playerIndexer);
+
             response.sendRedirect("/player");
+
+        } catch (NumberFormatException e) {
+            response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Invalid number format.");
         } catch (Exception e) {
-            e.printStackTrace();
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "An error occurred.");
         }
     }
+
+
 
 
 }

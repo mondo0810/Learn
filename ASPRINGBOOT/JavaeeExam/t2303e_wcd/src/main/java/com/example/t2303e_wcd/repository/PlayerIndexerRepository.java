@@ -1,7 +1,9 @@
 package com.example.t2303e_wcd.repository;
 
 import com.example.t2303e_wcd.HibernateUtil;
+import com.example.t2303e_wcd.model.Indexer;
 import com.example.t2303e_wcd.model.PlayerIndexer;
+import com.example.t2303e_wcd.model.Player;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -34,6 +36,21 @@ public class PlayerIndexerRepository {
                     .getResultList();
         }
     }
+
+    // Method to find a PlayerIndexer by Player and Indexer
+    public PlayerIndexer findByPlayerAndIndexer(Player player, Indexer indexer) {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            String hql = "FROM PlayerIndexer pi WHERE pi.player = :player AND pi.indexer = :indexer";
+            return session.createQuery(hql, PlayerIndexer.class)
+                    .setParameter("player", player)
+                    .setParameter("indexer", indexer)
+                    .uniqueResult();  // Return a single result
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;  // Return null if any exception occurs
+        }
+    }
+
 
     // Method to save or update a PlayerIndexer
     public boolean save(PlayerIndexer playerIndexer) {

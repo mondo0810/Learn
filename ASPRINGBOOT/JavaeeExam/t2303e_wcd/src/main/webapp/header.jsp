@@ -23,12 +23,13 @@
                  <li class="nav-item">
                                     <a class="nav-link" href="/player">Player</a>
                                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/player-indexer">Update Player</a>
-                </li>
+
                  <li class="nav-item">
                                       <a class="nav-link" href="/indexer">Indexer</a>
                                                 </li>
+                   <li class="nav-item">
+                                     <a class="nav-link" href="/player-indexer">Update Player</a>
+                                 </li>
                  <li class="nav-item">
                       <a class="nav-link" href="/classroom">Classroom</a>
                                 </li>
