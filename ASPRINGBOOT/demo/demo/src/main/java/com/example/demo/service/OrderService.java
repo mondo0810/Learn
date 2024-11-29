@@ -42,7 +42,7 @@ public class OrderService {
         List<OrderItem> orderItems = orderDTO.getItems().stream()
                 .map(itemDTO -> {
                     Product product = productRepository.findById(itemDTO.getProductId())
-                            .orElseThrow(() -> new BadRequestException("Product not found"));
+                            .orElseThrow(() -> new BadRequestException("Product not found dsf"));
 
                     // Kiểm tra số lượng trong kho
                     if (product.getQuantity() < itemDTO.getQuantity()) {
