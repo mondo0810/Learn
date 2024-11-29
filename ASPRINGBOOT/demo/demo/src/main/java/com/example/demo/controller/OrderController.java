@@ -45,6 +45,6 @@ public class OrderController {
     @DeleteMapping("/{orderId}")
     public ResponseEntity<?> deleteOrder(@PathVariable Long orderId) {
         orderService.deleteOrder(orderId);
-        return ResponseEntity.ok(new ApiResponse<>("Delete Thành công"));
+        return ResponseEntity.ok(new ApiResponse<>("Delete Thành công nè"));
     }
 }

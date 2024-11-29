@@ -32,7 +32,7 @@ public class AuthService {
 
     public AuthResponse register(AuthRequest request) {
         if (userRepository.existsByUsername(request.getUsername())) {
-            throw new BadRequestException("Username is already taken");
+            throw new BadRequestException("Username is already taken ne");
         }
 
         User user = User.builder()
