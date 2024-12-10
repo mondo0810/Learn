@@ -18,8 +18,7 @@ class MyApp extends StatelessWidget {
           headlineLarge: TextStyle(color: Colors.green),
         ),
       ),
-
-      home:  MyPage(),
+      home: SafeArea(child: MyPage()),
     );
   }
 }

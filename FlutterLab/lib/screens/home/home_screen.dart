@@ -1,5 +1,4 @@
-import 'package:app1/screens/home/HLSVideoPlayer.dart';
-import 'package:app1/screens/home/slider/carousel_demo.dart';
+import 'package:app1/screens/home/product.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -7,17 +6,23 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      scrollDirection: Axis.vertical,
-      child: Column(
-        children: [
-          // VideoPlayerScreen(),
-          // CarouselDemo(),
-          ClipOval(child: Image.network('https://picsum.photos/250?image=9')),
-          Text("Hello e,"),
-          Text("Hheheh"),
-        ],
-      ),
+    return ListView(
+      children: [
+        TextField(
+          decoration: InputDecoration(labelText: 'Search Product'),
+        ),
+        SizedBox(
+          height: 800, // Đảm bảo ProductListWidget có chiều cao cụ thể
+          child: ProductListWidget(
+              apiUrl: 'https://dummyjson.com/products?limit=12'),
+        ),
+        // CarouselDemo(),
+        ClipOval(
+          child: Image.network('https://picsum.photos/250?image=9'),
+        ),
+        const Text("Hello e,"),
+        const Text("Hheheh"),
+      ],
     );
   }
 }
