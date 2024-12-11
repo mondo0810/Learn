@@ -5,6 +5,11 @@ class CartScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text("Cart Screen");
+    return ListView(
+      children: [
+        Text("Đóng"),
+        Center(child: Text("Cart Screen")),
+      ],
+    );
   }
 }
