@@ -180,7 +180,7 @@ public class RoomServiceImpl implements RoomService {
     public void deleteRoom(Long roomId) {
 
         User user = UtilityService.getCurrentUser();
-        if(user.getRole() == UserRole.STAFF) {
+        if(user.getRole() == UserRole.ADMIN) {
             Staff staff = (Staff) user;
             Room room = roomRepository.findById(roomId)
                     .orElseThrow(() -> new RoomNotFoundException("Room with ID " + roomId + " not found."));
