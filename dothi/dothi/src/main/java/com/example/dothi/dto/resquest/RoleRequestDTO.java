@@ -11,5 +11,5 @@ import lombok.NoArgsConstructor;
 @Data
 public class RoleRequestDTO {
     private String name;
-    private String password;
+    private String description;
 }
