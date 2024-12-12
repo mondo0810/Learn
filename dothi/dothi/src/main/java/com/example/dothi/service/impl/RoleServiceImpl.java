@@ -2,8 +2,10 @@ package com.example.dothi.service.impl;
 
 import com.example.dothi.dto.response.RoleResponseDTO;
 import com.example.dothi.dto.response.UserResponseDTO;
+import com.example.dothi.dto.resquest.RoleCreateDTO;
 import com.example.dothi.dto.resquest.RoleRequestDTO;
 import com.example.dothi.entity.Role;
+import com.example.dothi.mapper.RoleMapper;
 import com.example.dothi.repository.RoleRepository;
 import com.example.dothi.service.RoleService;
 import lombok.RequiredArgsConstructor;
@@ -16,29 +18,25 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class RoleServiceImpl implements RoleService {
     private final RoleRepository roleRepository;
+    private final RoleMapper roleMapper;
+
 
     @Override
-    public List<UserResponseDTO> getAllRole() {
-        return List.of();
+    public List<RoleResponseDTO> getAllRole() {
+        List<RoleResponseDTO> roleResponseDTO = roleMapper.toListRoleResDTO(roleRepository.findAll());
+        return roleResponseDTO;
+
     }
 
     @Override
-    public RoleResponseDTO save(RoleRequestDTO roleRequestDTO) {
-        return null;
+    public RoleResponseDTO save(RoleCreateDTO roleCreateDTO) {
+        Role role = roleMapper.toEnity(roleCreateDTO);
+        RoleResponseDTO roleResponseDTO = roleMapper.toRoleResDTO(roleRepository.save(role));
+        return roleResponseDTO;
     }
 
     @Override
-    public Optional<Role> delete(String name) {
-        // Tìm Role theo name
-        Optional<Role> role = roleRepository.findByName(name);
-
-        // Kiểm tra nếu Role tồn tại thì xóa
-        if (role.isPresent()) {
-            roleRepository.delete(role.get());  // Xóa Role nếu tìm thấy
-            return role;
-        }
-
-        return role;  // Trả về false nếu Role không tồn tại
+    public boolean delete(String name) {
+        return false;
     }
-
 }

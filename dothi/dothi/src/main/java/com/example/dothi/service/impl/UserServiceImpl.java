@@ -4,16 +4,17 @@ import com.example.dothi.dto.response.UserResponseDTO;
 import com.example.dothi.dto.resquest.UserRequestDTO;
 import com.example.dothi.entity.Role;
 import com.example.dothi.entity.User;
+import com.example.dothi.exception.NotFoundException;
 import com.example.dothi.mapper.UserMapper;
 import com.example.dothi.repository.RoleRepository;
 import com.example.dothi.repository.UserRepository;
 import com.example.dothi.service.UserService;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @Service
 @RequiredArgsConstructor
@@ -21,36 +22,65 @@ public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
     private final UserMapper userMapper;
+
     @Override
     public List<UserResponseDTO> getAllUser() {
         List<User> users = userRepository.findAll();
-        return  userMapper.toListUserResDTO(users);
+        return userMapper.toListUserResDTO(users);
+    }
+
+    @Override
+    public List<UserResponseDTO> searchUsers(String searchParams) {
+        List<User> users = userRepository.searchByParams(searchParams);
+        return userMapper.toListUserResDTO(users);
+    }
+
+
+    @Override
+    public UserResponseDTO getUserById(Long id) {
+        User user = userRepository.findById(id)
+                .orElseThrow(() -> new NotFoundException("User with ID " + id + " not found"));
+        UserResponseDTO userResponseDTO = userMapper.toUserResDTO(user);
+        return userResponseDTO;
     }
 
     public UserResponseDTO save(UserRequestDTO userReqDTO) {
         User user = userMapper.toEnity(userReqDTO);
-
-        // Kiểm tra và tạo mới Role nếu chưa có trong cơ sở dữ liệu
-//        Set<Role> roles = new HashSet<>();
-//        for (Role role : user.getRoles()) {
-//            // Kiểm tra xem Role đã tồn tại chưa
-//            Role existingRole = roleRepository.findByName(role.getName())
-//                    .orElseGet(() -> {
-//                        // Nếu Role không tồn tại, tạo mới Role và lưu vào cơ sở dữ liệu
-//                        Role newRole = new Role(role.getName(), role.getDescription());
-//                        return roleRepository.save(newRole);  // Lưu Role mới vào cơ sở dữ liệu
-//                    });
-//            roles.add(existingRole);  // Thêm Role vào Set roles
-//        }
-//
-//        user.setRoles(roles);  // Gán lại các Role cho User
-        UserResponseDTO userResDTO = userMapper.toUserResDTO(userRepository.save(user));  // Lưu User vào cơ sở dữ liệu
+        UserResponseDTO userResDTO = userMapper.toUserResDTO(userRepository.save(user));
         return userResDTO;
     }
 
+    public UserResponseDTO update(UserRequestDTO userRequestDTO, Long id) {
+        User user = userRepository.findById(id)
+                .orElseThrow(() -> new NotFoundException("User with ID " + id + " not found"));
+        userMapper.update(user, userRequestDTO);
+        User updatedUser = userRepository.save(user);
+        return userMapper.toUserResDTO(updatedUser);
+    }
 
     @Override
-    public UserResponseDTO delete(Integer id) {
-        return null;
+    @Transactional
+    public void assignRoles(Long userId, List<String> roleNames) {
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new NotFoundException("User not found"));
+
+        List<Role> roles = roleRepository.findAllByNameIn(roleNames);
+        if (roles.size() != roleNames.size()) {
+            throw new NotFoundException("Some roles not found");
+        }
+
+        user.setRoles(new HashSet<>(roles));
+
+        userRepository.save(user);
     }
+
+    @Override
+    public boolean delete(Long id) {
+        User user = userRepository.findById(id)
+                .orElseThrow(() -> new NotFoundException("User with ID " + id + " not found"));
+
+        userRepository.delete(user);
+        return true;
+    }
+
 }
